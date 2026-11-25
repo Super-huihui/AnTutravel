@@ -2,327 +2,317 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>安途旅游 — 每一次出发，都平安归来</title>
-<link id="favicon" rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='10' y='18' width='44' height='30' rx='8' fill='%230d9488'/%3E%3Crect x='16' y='24' width='12' height='10' rx='2' fill='%23fff'/%3E%3Crect x='32' y='24' width='12' height='10' rx='2' fill='%23fff'/%3E%3Ccircle cx='20' cy='50' r='6' fill='%23222'/%3E%3Ccircle cx='44' cy='50' r='6' fill='%23222'/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>云栖山三日团·友群 (45)</title>
+<link id="favicon" rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307c160'/%3E%3Cellipse cx='26' cy='28' rx='16' ry='13' fill='%23fff'/%3E%3Cellipse cx='42' cy='40' rx='13' ry='10' fill='%23fff' opacity='.85'/%3E%3Ccircle cx='21' cy='26' r='2.4' fill='%2307c160'/%3E%3Ccircle cx='31' cy='26' r='2.4' fill='%2307c160'/%3E%3C/svg%3E">
 <style>
 :root{
-  --p:0;
-  --bg:#fdf9f2; --ink:#26221c; --muted:#8a8072; --accent:#0d9488; --cta:#ff6b35;
-  --card:#ffffff; --line:#eadfce; --nav-bg:rgba(255,255,255,.82);
-  --noise-o:0; --scan-o:0; --vig-o:.1; --rgb:0px; --sat:1; --con:1;
-  --hero-glow:1;
+  --bg:#ededed; --bubble:#ffffff; --self:#95ec69; --ink:#191919; --muted:#9a9a9a;
+  --line:#dcdcdc; --top:#f7f7f7; --side:#2e2e2e; --side-ink:#e8e8e8; --accent:#07c160;
+  --noise-o:0; --scan-o:0; --vig-o:0; --rgb:0px; --sat:1; --con:1; --side-w:0px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--bg); color:var(--ink);
-  font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
-  overflow-x:hidden; line-height:1.7;
+  background:var(--bg);color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:15.5px;line-height:1.55;overflow-x:hidden;
 }
-::selection{background:var(--cta);color:#fff}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer}
-h1,h2,h3{
-  line-height:1.3;font-weight:700;
-  text-shadow:var(--rgb) 0 rgba(255,0,70,.5), calc(var(--rgb) * -1) 0 rgba(0,255,240,.35);
-}
-body.s3 h1,body.s3 h2{font-family:"Songti SC","SimSun","Noto Serif SC",serif;letter-spacing:.14em}
-#page{filter:saturate(var(--sat)) contrast(var(--con));will-change:transform}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--accent);color:#fff}
 
-/* ---------- nav ---------- */
-#nav{
-  position:fixed;top:0;left:0;right:0;height:64px;z-index:50;
-  display:flex;align-items:center;gap:26px;padding:0 28px;
-  background:var(--nav-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+/* ---------- phone chrome ---------- */
+#statusbar{
+  position:fixed;top:0;left:var(--side-w);right:0;height:26px;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;padding:0 16px;
+  font-size:12px;font-weight:600;background:var(--top);color:var(--ink);
   border-bottom:1px solid var(--line);
 }
-#logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:18px;letter-spacing:.04em}
-#logo svg{width:28px;height:28px}
-#navLinks{display:flex;gap:24px;margin-left:14px;font-size:14.5px;color:var(--muted)}
-#navLinks a:hover{color:var(--accent)}
-#navRight{margin-left:auto;display:flex;align-items:center;gap:14px}
-#soundBtn{
-  border:1px solid var(--line);background:transparent;color:var(--muted);
-  border-radius:20px;padding:6px 13px;font-size:13px;transition:.2s;
+#statusbar .right{display:flex;align-items:center;gap:7px}
+.sig{display:inline-flex;gap:1.5px;align-items:flex-end;height:10px}
+.sig i{width:2.5px;background:var(--ink);display:block}
+.sig i:nth-child(1){height:3px}.sig i:nth-child(2){height:5px}.sig i:nth-child(3){height:7px}.sig i:nth-child(4){height:10px}
+.sig i.off{opacity:.18}
+#sbBatt{font-variant-numeric:tabular-nums}
+#topbar{
+  position:fixed;top:26px;left:var(--side-w);right:0;height:50px;z-index:60;
+  display:flex;align-items:center;gap:10px;padding:0 14px;
+  background:var(--top);border-bottom:1px solid var(--line);
 }
-#soundBtn:hover{border-color:var(--accent);color:var(--accent)}
-.btn{
-  display:inline-block;border:none;border-radius:10px;padding:13px 30px;
-  background:var(--cta);color:#fff;font-size:16px;font-weight:600;letter-spacing:.05em;
-  box-shadow:0 6px 22px rgba(0,0,0,.18);transition:transform .18s, background .3s;
+#topbar .back{font-size:22px;color:var(--ink);padding:0 4px}
+#grpTitle{flex:1;text-align:center;font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#grpCount{font-weight:400;color:var(--muted)}
+#topbar .icon-btn{font-size:17px;padding:4px 6px;color:var(--ink)}
+#notice{
+  position:fixed;top:76px;left:var(--side-w);right:0;z-index:59;
+  background:var(--top);border-bottom:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);padding:7px 16px;cursor:pointer;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-.btn:hover{transform:translateY(-2px)}
-.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
-.btn.small{padding:8px 18px;font-size:14px;border-radius:8px}
+#notice b{color:var(--accent);font-weight:600}
 
-/* ---------- sections ---------- */
-section{padding:96px 8vw;position:relative}
-.kicker{color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.35em;margin-bottom:14px;text-transform:uppercase}
-h2.sec{font-size:clamp(26px,3.4vw,40px);margin-bottom:16px}
-.sec-sub{color:var(--muted);max-width:640px;margin-bottom:48px}
-
-/* hero */
-#hero{
-  min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;
-  gap:40px;padding-top:130px;padding-bottom:60px;
+/* ---------- sidebar (desktop) ---------- */
+#sidebar{
+  display:none;position:fixed;left:0;top:0;bottom:0;width:280px;z-index:70;
+  background:var(--side);color:var(--side-ink);flex-direction:column;
 }
-#hero::before{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--hero-glow);
-  background:
-    radial-gradient(700px 420px at 80% 26%, rgba(255,107,53,.13), transparent 65%),
-    radial-gradient(560px 400px at 10% 84%, rgba(13,148,136,.10), transparent 60%);
+#sidebar .me{padding:22px 18px 14px;display:flex;gap:12px;align-items:center}
+#sidebar .me .ava{width:44px;height:44px;border-radius:6px;overflow:hidden;background:#4a4a4a}
+#sidebar .me .ava svg{width:100%;height:100%}
+#sidebar .me .n{font-size:15px;font-weight:600}
+#sidebar .search{margin:0 14px 10px;background:#3a3a3a;border-radius:6px;padding:7px 12px;font-size:12.5px;color:#9a9a9a}
+.side-chat{display:flex;gap:11px;padding:12px 16px;cursor:pointer;align-items:center;position:relative}
+.side-chat:hover{background:#383838}
+.side-chat.active{background:#4a4a4a}
+.side-chat .ava{width:42px;height:42px;border-radius:6px;overflow:hidden;flex-shrink:0;background:#555}
+.side-chat .ava svg{width:100%;height:100%}
+.side-chat .info{flex:1;min-width:0}
+.side-chat .n{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side-chat .p{font-size:12px;color:#9a9a9a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.side-chat .badge{
+  position:absolute;left:46px;top:8px;background:#fa5151;color:#fff;border-radius:10px;
+  font-size:10px;min-width:17px;height:17px;line-height:17px;text-align:center;padding:0 4px;
 }
-#hero h1{font-size:clamp(32px,4.6vw,54px);margin-bottom:22px}
-#hero h1 em{font-style:normal;color:var(--cta)}
-#hero .sub{color:var(--muted);font-size:17px;max-width:520px;margin-bottom:36px}
-#hero .cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:26px}
-#hero .tiny{font-size:13px;color:var(--muted)}
-.bus-wrap{position:relative;display:flex;justify-content:center;align-items:center;min-height:360px}
-#busSvg{width:min(480px,100%);animation:floaty 6s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.bus-face{opacity:0;transition:opacity 1.2s}
-body.s2 .bus-face{opacity:1}
-#ledSign{font-family:"Courier New",monospace;font-weight:700;letter-spacing:2px;
-  text-shadow:0 0 8px rgba(255,176,0,.8)}
-.chip{
-  position:absolute;background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:9px 15px;font-size:13px;box-shadow:0 10px 26px rgba(0,0,0,.12);color:var(--ink);
-  animation:floaty 6.5s ease-in-out infinite;white-space:nowrap;
+#sideIt{display:none}
+#sideIt.show{display:flex}
+
+/* ---------- chat log ---------- */
+#log{max-width:680px;margin:0 auto;padding:118px 14px 108px}
+.time-div{text-align:center;font-size:11.5px;color:#b2b2b2;margin:18px 0 10px}
+.sys{text-align:center;font-size:12px;color:#9a9a9a;margin:12px 24px;line-height:1.6}
+.sys .peek{color:#576b95;cursor:pointer;margin-left:6px}
+.sys .peeked{display:block;color:#c0392b;margin-top:4px;letter-spacing:.1em}
+.msg-row{display:flex;gap:10px;margin:16px 0;align-items:flex-start}
+.msg-row.self{flex-direction:row-reverse}
+.msg-row .ava{width:40px;height:40px;border-radius:5px;overflow:hidden;flex-shrink:0;background:#d8d8d8}
+.msg-row .ava svg{width:100%;height:100%;display:block}
+.msg-row .ava.left{filter:grayscale(1) brightness(.6)}
+.msg-row .col{max-width:74%;display:flex;flex-direction:column}
+.msg-row.self .col{align-items:flex-end}
+.sender{font-size:12px;color:#9a9a9a;margin:0 4px 4px}
+.sender .tag{color:var(--accent);border:1px solid var(--accent);border-radius:3px;font-size:10px;padding:0 3px;margin-left:5px}
+.bubble{
+  position:relative;background:var(--bubble);border-radius:8px;padding:9px 13px;
+  font-size:15.5px;word-break:break-word;box-shadow:0 1px 1px rgba(0,0,0,.04);
 }
-.chip.c1{top:6%;left:0}
-.chip.c2{bottom:8%;right:0;animation-delay:-3s}
-
-/* trust */
-#trust{padding:34px 8vw;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-#trust .t-label{text-align:center;font-size:12px;letter-spacing:.3em;color:var(--muted);margin-bottom:18px}
-#trust .t-row{display:flex;justify-content:center;gap:clamp(20px,5vw,64px);flex-wrap:wrap;
-  font-weight:700;font-size:16px;color:var(--muted);opacity:.85}
-
-/* cards */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.card{
-  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 26px;
-  box-shadow:0 8px 26px rgba(0,0,0,.06);transition:background .3s,border-color .3s;
+.bubble::before{
+  content:"";position:absolute;top:13px;left:-5px;border:5px solid transparent;border-right-color:var(--bubble);border-left:0;
 }
-.card .ico{font-size:30px;margin-bottom:16px}
-.card h3{font-size:19px;margin-bottom:10px}
-.card p{color:var(--muted);font-size:14.5px}
-.stars{color:#f5a623;letter-spacing:3px;margin-bottom:12px;font-size:15px}
-.review-q{font-size:15px;margin-bottom:18px}
-.review-who{font-size:13px;color:var(--muted)}
+.msg-row.self .bubble{background:var(--self)}
+.msg-row.self .bubble::before{left:auto;right:-5px;border-right:0;border-left:5px solid transparent;border-left-color:var(--self)}
+.bubble .btext{white-space:pre-wrap}
+.pending{opacity:0;transform:translateY(8px)}
+.msg-row,.sys,.time-div{transition:opacity .55s,transform .55s}
+.in{opacity:1;transform:none}
 
-/* itinerary */
-#itinerary .days{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.day{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:0 8px 26px rgba(0,0,0,.06)}
-.day-badge{
-  display:inline-block;background:var(--accent);color:#fff;border-radius:8px;
-  padding:4px 14px;font-weight:800;font-size:14px;letter-spacing:.1em;margin-bottom:18px;
+/* voice */
+.bubble.voice{display:flex;align-items:center;gap:9px;min-width:130px;cursor:pointer}
+.bubble.voice .play{font-size:15px}
+.wave{display:flex;gap:2.5px;align-items:center;height:18px}
+.wave i{width:2.5px;background:var(--ink);border-radius:2px;height:5px;opacity:.75}
+.wave i:nth-child(2){height:10px}.wave i:nth-child(3){height:15px}.wave i:nth-child(4){height:9px}.wave i:nth-child(5){height:13px}.wave i:nth-child(6){height:6px}
+.bubble.voice.playing .wave i{animation:waveAnim .5s ease-in-out infinite alternate}
+.bubble.voice.playing .wave i:nth-child(2n){animation-delay:.2s}
+@keyframes waveAnim{from{transform:scaleY(.4)}to{transform:scaleY(1.25)}}
+.bubble.voice .dur{font-size:13px;color:var(--muted)}
+.trans{font-size:12px;color:#576b95;margin:5px 4px 0;cursor:pointer}
+.transcript{display:none;font-size:13px;color:var(--muted);margin:5px 4px 0;max-width:250px}
+.transcript.show{display:block}
+
+/* red packet */
+.bubble.rp{
+  background:linear-gradient(135deg,#fa9d3b,#f2703a);color:#fff;cursor:pointer;
+  display:flex;gap:11px;align-items:center;min-width:200px;padding:13px 15px;
 }
-.it-row{display:flex;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
-.it-row:last-of-type{border-bottom:none}
-.it-time{color:var(--accent);font-weight:700;font-family:"Courier New",monospace;flex-shrink:0}
-.it-note{margin-top:16px;font-size:12.5px;color:var(--muted);background:var(--bg);border-radius:10px;padding:10px 14px}
+.bubble.rp::before{border-right-color:#f5873c}
+.msg-row.self .bubble.rp::before{border-left-color:#f5873c}
+.bubble.rp .ric{font-size:27px}
+.bubble.rp .rt{font-size:15px}
+.bubble.rp .rs{font-size:11px;opacity:.85;margin-top:2px}
+.bubble.rp.evil{background:linear-gradient(135deg,#8a2b1d,#4a0f0a)}
+.bubble.rp.evil::before{border-right-color:#6e2117}
 
-/* stats */
-#stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-#stats .grid4{text-align:center}
-.stat .v{font-size:clamp(30px,3.6vw,46px);font-weight:800;color:var(--accent);letter-spacing:.02em}
-.stat .l{color:var(--muted);font-size:14px;margin-top:6px}
+/* photo */
+.bubble.photo{padding:4px;cursor:pointer;line-height:0}
+.bubble.photo svg{width:190px;height:119px;border-radius:5px;display:block}
+.bubble.photo::before{top:16px}
+.photo-cap{font-size:12px;color:var(--muted);margin:5px 4px 0;line-height:1.5}
 
-/* team */
-.avatar{width:96px;height:96px;border-radius:50%;overflow:hidden;margin-bottom:16px;border:1px solid var(--line);background:#f3ede1}
-.avatar svg{width:100%;height:100%;display:block}
-.g-bad{opacity:0;transition:opacity .9s}
-.g-good{transition:opacity .9s}
-body.s2 .g-bad{opacity:1}
-body.s2 .g-good{opacity:0}
-.team-role{font-size:13px;color:var(--accent);margin:2px 0 10px;font-weight:600}
-#team .card p{font-size:13.5px}
+/* location */
+.bubble.loc{padding:0;overflow:hidden;cursor:pointer;width:236px}
+.bubble.loc .lt{font-size:14px;padding:9px 12px 2px}
+.bubble.loc .la{font-size:11.5px;color:var(--muted);padding:0 12px 8px}
+.bubble.loc svg{width:100%;height:96px;display:block}
+.bubble.loc::before{top:16px}
 
-/* faq */
-.faq-item{border:1px solid var(--line);border-radius:12px;margin-bottom:14px;background:var(--card);overflow:hidden}
-.faq-q{
-  width:100%;text-align:left;background:none;border:none;color:var(--ink);
-  padding:19px 22px;font-size:16px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:14px;
+/* itinerary card */
+.bubble.card{padding:0;overflow:hidden;width:250px}
+.bubble.card .ct{font-size:14.5px;font-weight:600;padding:11px 13px;border-bottom:1px solid var(--line)}
+.bubble.card .cr{display:flex;gap:9px;font-size:12.5px;color:var(--muted);padding:7px 13px}
+.bubble.card .cr b{color:var(--accent);font-family:"Courier New",monospace}
+.bubble.card .cf{font-size:11px;color:#b2b2b2;padding:6px 13px 9px;border-top:1px solid var(--line)}
+.bubble.card::before{top:16px}
+
+/* chain */
+.bubble.chain{width:236px}
+.bubble.chain .cht{font-weight:600;font-size:14.5px;margin-bottom:7px}
+.chain-item{font-size:13.5px;color:var(--ink);padding:2.5px 0}
+.chain-item.struck{text-decoration:line-through;color:#b2b2b2}
+.chain-item.you{color:#c0392b;font-weight:700}
+.chain-foot{font-size:11.5px;color:#b2b2b2;margin-top:7px;border-top:1px solid var(--line);padding-top:7px}
+
+/* typing */
+.typing-bubble{display:inline-flex;gap:4px;padding:13px 15px}
+.typing-bubble i{width:6px;height:6px;border-radius:50%;background:#b2b2b2;animation:typ 1s infinite}
+.typing-bubble i:nth-child(2){animation-delay:.18s}
+.typing-bubble i:nth-child(3){animation-delay:.36s}
+@keyframes typ{0%,100%{opacity:.25;transform:translateY(0)}45%{opacity:1;transform:translateY(-3px)}}
+
+/* ---------- input bar ---------- */
+#inputbar{
+  position:fixed;bottom:0;left:var(--side-w);right:0;z-index:60;
+  display:flex;align-items:center;gap:9px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));
+  background:var(--top);border-top:1px solid var(--line);
 }
-.faq-q .arr{transition:transform .25s;color:var(--muted);font-size:13px}
-.faq-item.open .arr{transform:rotate(90deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s;color:var(--muted);font-size:14.5px}
-.faq-a div{padding:0 22px 20px}
-.faq-item.open .faq-a{max-height:260px}
-
-/* cta */
-#cta{text-align:center;border-top:1px solid var(--line)}
-#cta .price{font-size:15px;color:var(--muted);margin-bottom:34px}
-#cta .price b{color:var(--cta);font-size:30px}
-#buyBtn{font-size:19px;padding:17px 54px;will-change:transform;transition:transform .12s ease-out}
-#cta .note{margin-top:20px;font-size:12.5px;color:var(--muted)}
-
-/* footer */
-#footer{padding:64px 8vw 40px;border-top:1px solid var(--line);font-size:14px}
-#footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:40px}
-#footer h4{font-size:14px;margin-bottom:14px}
-#footer .cols a,#footer .cols span{display:block;color:var(--muted);margin-bottom:9px;font-size:13.5px}
-#footer .legal{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:22px;text-align:center}
-#footer .end-mark{text-align:center;color:var(--muted);font-size:12px;letter-spacing:.4em;margin-top:26px;opacity:.7}
-
-/* ---------- road set piece ---------- */
-#road{height:340vh;padding:0;background:#040304}
-.road-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#050405}
-#roadSvg{position:absolute;inset:0;width:100%;height:100%}
-#guide{
-  position:absolute;left:50%;top:50%;width:195px;height:390px;
-  transform:translate(-50%,-100%) scale(.12);transform-origin:50% 100%;
-  will-change:transform;filter:brightness(.8);
+#inputbar .icon-btn{font-size:21px;color:var(--ink);padding:2px}
+#chatInput{
+  flex:1;background:var(--bubble);border:none;border-radius:6px;padding:9px 12px;
+  font-size:15px;color:var(--ink);outline:none;font-family:inherit;min-width:0;
 }
-#guide svg{width:100%;height:100%;overflow:visible}
-#guide.close{filter:brightness(1.05)}
-.flag-wave{animation:flagWave 1.5s ease-in-out infinite;transform-origin:185px 36px}
-@keyframes flagWave{0%,100%{transform:skewY(0deg) scaleX(1)}50%{transform:skewY(-5deg) scaleX(.94)}}
-.road-fog{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 52%, transparent 20%, rgba(0,0,0,.85) 78%)}
-.lamp{animation:lampFlick 2.8s steps(2) infinite}
-@keyframes lampFlick{0%,90%{opacity:.8}91%,95%{opacity:.15}96%,100%{opacity:.6}}
-.road-hud{position:absolute;font-family:"Courier New",monospace;font-size:12px;color:#93a09a;letter-spacing:.12em;z-index:3}
-.road-hud.tl{top:18px;left:22px}
-.road-hud.tr{top:18px;right:22px}
-.road-hud.bl{bottom:18px;left:22px;opacity:.8}
-.road-hud.br{bottom:18px;right:22px;text-align:right}
-.rec-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff3b30;margin-right:7px;animation:recBlink 1s steps(2) infinite}
-@keyframes recBlink{50%{opacity:.25}}
-#roadText{
-  position:absolute;bottom:9vh;left:0;right:0;text-align:center;z-index:3;
-  font-family:"Songti SC","SimSun",serif;font-size:clamp(17px,2.4vw,24px);
-  color:#b6ab9d;letter-spacing:.3em;text-shadow:0 0 14px #000;transition:opacity .5s;padding:0 20px;
+#sendBtn{display:none;background:var(--accent);color:#fff;border-radius:6px;padding:8px 16px;font-size:14px;font-weight:600}
+#sendBtn.show{display:block}
+#plusPanel{
+  position:fixed;bottom:64px;left:var(--side-w);right:0;z-index:59;display:none;
+  background:var(--top);border-top:1px solid var(--line);padding:18px 26px;gap:30px;
 }
-
-/* ---------- finale ---------- */
-#finale{height:100vh;padding:0;background:#020101;display:flex;align-items:center;justify-content:center}
-.fin-hud{position:absolute;font-family:"Courier New",monospace;font-size:12px;color:#7d8a84;letter-spacing:.14em;opacity:0;transition:opacity 1.2s}
-.fin-hud.tl{top:20px;left:24px}
-.fin-hud.tr{top:20px;right:24px}
-.fin-hud.bl{bottom:20px;left:24px}
-body.finale-on .fin-hud{opacity:.9}
-#finLines{max-width:780px;padding:0 24px;text-align:center}
-#finLines .line{
-  font-family:"Songti SC","SimSun",serif;font-size:clamp(16px,2.4vw,24px);
-  color:#b3a89a;letter-spacing:.2em;margin:.95em 0;min-height:1em;
-}
-#finLines .line.dont{color:#cf3a2a;font-size:clamp(22px,3.4vw,34px);text-shadow:0 0 18px rgba(200,30,10,.5)}
-#finLines .caret{display:inline-block;width:.55em;color:#cf3a2a;animation:recBlink .7s steps(2) infinite}
-#aftermath{display:none;text-align:center;padding:0 26px;max-width:680px;color:#8d8d8d}
-#aftermath .after-big{font-size:26px;color:#b9b3a8;margin-bottom:22px;font-family:"Songti SC","SimSun",serif;letter-spacing:.2em}
-#aftermath p{margin-bottom:16px;font-size:15px}
-#aftermath .after-small{font-size:12.5px;color:#5f5f5f;line-height:1.9;margin-bottom:34px}
-#againBtn{background:#3a3f55}
-#stayLink{display:block;margin-top:22px;font-size:12px;color:#4c4c4c;cursor:pointer}
-#stayLink:hover{color:#a33}
+#plusPanel.open{display:flex}
+.plus-item{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:12px;color:var(--muted)}
+.plus-item .pic{width:52px;height:52px;border-radius:12px;background:var(--bubble);display:flex;align-items:center;justify-content:center;font-size:23px;border:1px solid var(--line)}
 
 /* ---------- overlays ---------- */
 #noise,#scan,#vig,#blinkTop,#blinkBot,#subliminal,#whispers,#flash,#scare{position:fixed;inset:0;pointer-events:none}
 #noise{z-index:90;opacity:var(--noise-o);animation:noiseShift .38s steps(3) infinite;background-repeat:repeat}
 @keyframes noiseShift{0%{background-position:0 0}33%{background-position:-46px 32px}66%{background-position:30px -58px}100%{background-position:-12px -20px}}
-#scan{z-index:91;opacity:var(--scan-o);background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px)}
-#vig{z-index:92;opacity:var(--vig-o);background:radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,.9) 100%)}
+#scan{z-index:91;opacity:var(--scan-o);background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+#vig{z-index:92;opacity:var(--vig-o);background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.85) 100%)}
 #blinkTop,#blinkBot{z-index:95;background:#000;transition:transform .13s ease-in}
 #blinkTop{bottom:auto;height:52vh;transform:scaleY(0);transform-origin:top}
 #blinkBot{top:auto;height:52vh;transform:scaleY(0);transform-origin:bottom}
 #blinkTop.closed,#blinkBot.closed{transform:scaleY(1)}
 #whispers{z-index:93}
-.whisper{
-  position:absolute;font-family:"Songti SC","SimSun",serif;color:#cfc4b6;
-  text-shadow:0 0 10px #000;letter-spacing:.3em;animation:whisperFade 3.8s forwards;white-space:nowrap;
-}
-@keyframes whisperFade{0%{opacity:0;transform:translateY(8px)}18%{opacity:.65}70%{opacity:.4}100%{opacity:0;transform:translateY(-16px)}}
+.whisper{position:absolute;font-family:"Songti SC","SimSun",serif;color:#cfc4b6;text-shadow:0 0 10px #000;letter-spacing:.3em;animation:whisperFade 3.8s forwards;white-space:nowrap}
+@keyframes whisperFade{0%{opacity:0;transform:translateY(8px)}18%{opacity:.6}70%{opacity:.35}100%{opacity:0;transform:translateY(-16px)}}
 #subliminal{z-index:96;display:none;place-items:center;background:rgba(0,0,0,.35)}
-#subliminal svg{width:58vmin;opacity:.9}
+#subliminal svg{width:56vmin;opacity:.9}
 #flash{z-index:97;background:radial-gradient(circle,#7a0c06,#1a0302 75%);opacity:0}
-#scare{z-index:200;display:none;place-items:center;background:#000}
+#scare{z-index:400;display:none;place-items:center;background:#000}
 #scare svg{width:min(100vmin,940px);filter:contrast(1.35) saturate(1.1) brightness(1.05)}
 #scare.jitter svg{animation:scareJitter .055s steps(2) infinite}
 @keyframes scareJitter{0%{transform:translate(-9px,5px) scale(1.03)}50%{transform:translate(8px,-7px) scale(1.06)}100%{transform:translate(-5px,-4px) scale(1.02)}}
-
-/* glitch burst */
 .glitch{animation:glitchAnim .24s steps(2,end) both}
 @keyframes glitchAnim{
-  0%{clip-path:inset(12% 0 61% 0);transform:translateX(-8px)}
-  25%{clip-path:inset(52% 0 18% 0);transform:translateX(7px)}
-  50%{clip-path:inset(28% 0 44% 0);transform:translateX(-5px) skewX(1.5deg)}
-  75%{clip-path:inset(70% 0 6% 0);transform:translateX(6px)}
+  0%{clip-path:inset(12% 0 61% 0);transform:translateX(-7px)}
+  25%{clip-path:inset(52% 0 18% 0);transform:translateX(6px)}
+  50%{clip-path:inset(28% 0 44% 0);transform:translateX(-4px) skewX(1.2deg)}
+  75%{clip-path:inset(70% 0 6% 0);transform:translateX(5px)}
   100%{clip-path:none;transform:none}
 }
 .flicker{animation:flick .3s steps(3)}
 @keyframes flick{0%,100%{opacity:1}33%{opacity:.1}66%{opacity:.7}}
+.btext{text-shadow:var(--rgb) 0 rgba(255,0,70,.45),calc(var(--rgb) * -1) 0 rgba(0,255,240,.3)}
 
 /* toasts */
-#toasts{position:fixed;top:76px;right:20px;z-index:120;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+#toasts{position:fixed;top:112px;right:14px;z-index:120;display:flex;flex-direction:column;gap:9px;pointer-events:none}
 .toast{
-  min-width:250px;max-width:330px;background:var(--card);border:1px solid var(--line);
-  border-left:3px solid var(--cta);border-radius:10px;padding:12px 16px;font-size:13px;
-  box-shadow:0 12px 30px rgba(0,0,0,.25);animation:toastIn .3s ease-out;color:var(--ink);
+  min-width:220px;max-width:300px;background:var(--bubble);border:1px solid var(--line);
+  border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:12.5px;
+  box-shadow:0 10px 26px rgba(0,0,0,.22);animation:toastIn .3s ease-out;color:var(--ink);
 }
-.toast .t-title{font-weight:700;font-size:12px;color:var(--muted);margin-bottom:3px;letter-spacing:.08em}
-@keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+.toast .t-title{font-weight:700;font-size:11.5px;color:var(--muted);margin-bottom:2px}
+@keyframes toastIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
 
-/* cookie */
-#cookie{
-  position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:110;display:none;
-  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 22px;
-  box-shadow:0 16px 40px rgba(0,0,0,.3);font-size:13.5px;max-width:min(560px,92vw);
-  align-items:center;gap:18px;
+/* ---------- modal ---------- */
+#modal{position:fixed;inset:0;z-index:300;display:none;place-items:center;background:rgba(0,0,0,.72);padding:20px}
+#modal.open{display:grid}
+#modalCard{
+  background:var(--bubble);border-radius:12px;max-width:min(420px,94vw);max-height:86vh;overflow:auto;
+  width:100%;position:relative;color:var(--ink);
 }
-#cookie .btn{padding:8px 22px;font-size:13px;flex-shrink:0}
+#modalCard .mclose{position:absolute;top:8px;right:10px;font-size:20px;color:var(--muted);z-index:2;padding:4px}
+.m-photo svg{width:100%;display:block;border-radius:12px 12px 0 0}
+.m-photo .hid{opacity:0;transition:opacity 1.6s}
+.m-photo.reveal .hid{opacity:1}
+.m-cap{padding:12px 16px;font-size:13px;color:var(--muted)}
+.m-rp{background:linear-gradient(160deg,#fa9d3b,#e85d2a);color:#fff;text-align:center;padding:34px 24px 28px;border-radius:12px}
+.m-rp.evil{background:linear-gradient(160deg,#7e2418,#300a06)}
+.m-rp .from{font-size:14px;opacity:.9}
+.m-rp .greet{font-size:19px;margin:14px 0 24px}
+.m-rp .open-coin{
+  width:64px;height:64px;border-radius:50%;background:#ffd9a0;color:#a3541c;margin:0 auto;
+  font-size:26px;font-weight:800;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.3);transition:transform .5s;
+}
+.m-rp .open-coin.spin{transform:rotateY(720deg) scale(.9)}
+.m-rp .result{display:none;margin-top:22px;font-size:15px;line-height:1.9}
+.m-rp .result.show{display:block}
+.m-rp .result b{font-size:26px}
+.m-loc{padding:0}
+.m-loc .lt{font-size:15px;font-weight:600;padding:14px 16px 2px}
+.m-loc .la{font-size:12px;color:var(--muted);padding:0 16px 10px}
+.m-loc svg{width:100%;display:block}
+.m-loc .dist{padding:11px 16px;font-size:13px;color:#c0392b;border-top:1px solid var(--line)}
+.m-preview{padding:18px 18px 22px}
+.m-preview h4{font-size:15px;margin-bottom:14px}
+.m-preview .pm{display:flex;gap:9px;margin-bottom:12px;font-size:13.5px}
+.m-preview .pm .pa{width:32px;height:32px;border-radius:4px;overflow:hidden;flex-shrink:0}
+.m-preview .pm .pa svg{width:100%;height:100%}
+.m-preview .pm .pb{background:var(--bg);border-radius:6px;padding:7px 11px}
+.m-preview .pnote{font-size:11.5px;color:var(--muted);margin-top:14px;text-align:center}
 
-/* chat */
-#chatBubble{
-  position:fixed;right:22px;bottom:22px;z-index:115;border:none;border-radius:30px;
-  background:var(--cta);color:#fff;padding:13px 22px;font-size:14px;font-weight:600;
-  box-shadow:0 12px 30px rgba(0,0,0,.3);display:flex;align-items:center;gap:9px;
+/* ---------- drawer ---------- */
+#drawerBg{position:fixed;inset:0;z-index:240;background:rgba(0,0,0,.4);display:none}
+#drawerBg.open{display:block}
+#drawer{
+  position:fixed;top:0;right:0;bottom:0;z-index:250;width:min(340px,92vw);
+  background:var(--bg);transform:translateX(102%);transition:transform .28s;overflow-y:auto;
+  padding:20px 18px 30px;
 }
-#chatBadge{
-  display:none;background:#ff3b30;color:#fff;border-radius:12px;font-size:11px;
-  min-width:19px;height:19px;line-height:19px;text-align:center;padding:0 5px;
-}
-#chatBubble.pulse{animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-#chatPanel{
-  position:fixed;right:22px;bottom:84px;z-index:115;width:min(330px,calc(100vw - 40px));
-  background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;
-  box-shadow:0 24px 60px rgba(0,0,0,.4);display:none;flex-direction:column;
-}
-#chatPanel.open{display:flex}
-.chat-head{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:11px}
-.chat-ava{width:36px;height:36px;border-radius:50%;overflow:hidden;background:#f3ede1;flex-shrink:0}
-.chat-ava svg{width:100%;height:100%}
-.chat-head .n{font-size:14px;font-weight:700}
-.chat-head .s{font-size:11.5px;color:var(--muted)}
-.chat-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:18px}
-#chatMsgs{height:262px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;font-size:13.5px}
-.msg{max-width:82%;padding:9px 13px;border-radius:12px;line-height:1.55}
-.msg.agent{background:var(--bg);border:1px solid var(--line);align-self:flex-start;border-top-left-radius:3px}
-.msg.user{background:var(--cta);color:#fff;align-self:flex-end;border-top-right-radius:3px}
-.msg.typing{color:var(--muted);font-style:italic}
-.chat-input{display:flex;border-top:1px solid var(--line)}
-.chat-input input{flex:1;border:none;background:transparent;padding:12px 14px;font-size:13.5px;color:var(--ink);outline:none;font-family:inherit}
-.chat-input button{border:none;background:transparent;color:var(--cta);padding:0 16px;font-weight:700;font-size:13.5px}
+#drawer.open{transform:none}
+#drawer h3{font-size:16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+#drawer h3 button{font-size:19px;color:var(--muted)}
+.d-sec{font-size:12px;color:var(--muted);margin:18px 0 9px}
+.d-members{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 8px}
+.d-m{text-align:center;font-size:11px;color:var(--muted)}
+.d-m .ava{width:44px;height:44px;border-radius:5px;overflow:hidden;margin:0 auto 4px;background:#d8d8d8}
+.d-m .ava svg{width:100%;height:100%}
+.d-m .st{font-size:10px;color:var(--accent)}
+.d-m .st.bad{color:#c0392b}
+.d-m .st.off{color:#b2b2b2}
+.d-m.left .ava{filter:grayscale(1) brightness(.6)}
+.d-notice{background:var(--bubble);border-radius:8px;padding:11px 13px;font-size:13px;color:var(--ink)}
+.d-row{display:flex;justify-content:space-between;background:var(--bubble);border-radius:8px;padding:12px 13px;font-size:14px;margin-bottom:8px}
+.d-row .v{color:var(--muted);font-size:13px}
+#quitBtn{width:100%;background:var(--bubble);color:#fa5151;border-radius:8px;padding:13px;font-size:15px;margin-top:18px}
 
-/* responsive */
-@media (max-width:900px){
-  #navLinks{display:none}
-  #hero{grid-template-columns:1fr;padding-top:110px;text-align:center}
-  #hero .sub{margin:0 auto 32px}
-  #hero .cta-row{justify-content:center}
-  .bus-wrap{min-height:280px;margin-top:20px}
-  .grid3,.grid4,#itinerary .days{grid-template-columns:1fr}
-  #stats .grid4{grid-template-columns:1fr 1fr}
-  #footer .cols{grid-template-columns:1fr 1fr}
-  section{padding:72px 7vw}
+/* ---------- aftermath ---------- */
+#aftermath{position:fixed;inset:0;z-index:350;display:none;place-items:center;background:#0a0908;padding:24px}
+#aftermath.open{display:grid}
+#aftermath .card{max-width:560px;text-align:center;color:#8d8d8d}
+#aftermath .big{font-size:22px;color:#b9b3a8;margin-bottom:20px;font-family:"Songti SC","SimSun",serif;letter-spacing:.2em}
+#aftermath p{margin-bottom:15px;font-size:14.5px}
+#aftermath .small{font-size:12px;color:#5f5f5f;line-height:1.9;margin-bottom:30px}
+#aftermath .btn{display:inline-block;background:#3a3f55;color:#fff;border-radius:8px;padding:12px 30px;font-size:15px}
+#stayLink{display:block;margin-top:20px;font-size:12px;color:#4c4c4c;cursor:pointer}
+#stayLink:hover{color:#a33}
+
+@media (min-width:1000px){
+  :root{--side-w:280px}
+  #sidebar{display:flex}
+  body{padding-left:280px}
 }
 @media (prefers-reduced-motion:reduce){
-  #busSvg,.chip,#guide svg,.flag-wave{animation:none}
   #noise{animation:none}
+  .typing-bubble i{animation:none}
 }
 </style>
 </head>
@@ -332,14 +322,8 @@ body.finale-on .fin-hud{opacity:.9}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <radialGradient id="paperGrad" cx="50%" cy="38%" r="72%">
-      <stop offset="0%" stop-color="#f5f0e6"/>
-      <stop offset="72%" stop-color="#e2dbca"/>
-      <stop offset="100%" stop-color="#c2b9a4"/>
+      <stop offset="0%" stop-color="#f5f0e6"/><stop offset="72%" stop-color="#e2dbca"/><stop offset="100%" stop-color="#c2b9a4"/>
     </radialGradient>
-    <linearGradient id="busGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#dde7ec"/>
-    </linearGradient>
     <filter id="faceDisplace" x="-25%" y="-25%" width="150%" height="150%">
       <feTurbulence type="fractalNoise" baseFrequency="0.013" numOctaves="2" seed="7" result="n"/>
       <feDisplacementMap id="faceDisp" in="SourceGraphic" in2="n" scale="3" xChannelSelector="R" yChannelSelector="G"/>
@@ -348,7 +332,6 @@ body.finale-on .fin-hud{opacity:.9}
       <feTurbulence type="fractalNoise" baseFrequency="0.021" numOctaves="3" seed="13" result="n"/>
       <feDisplacementMap id="scareDisp" in="SourceGraphic" in2="n" scale="30" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
-    <!-- 纸人脸 -->
     <symbol id="paper-face" viewBox="0 0 200 260">
       <g filter="url(#faceDisplace)">
         <path d="M100,36 C66,36 52,68 52,110 C52,158 70,198 100,204 C130,198 148,158 148,110 C148,68 134,36 100,36 Z" fill="url(#paperGrad)"/>
@@ -357,365 +340,139 @@ body.finale-on .fin-hud{opacity:.9}
         <path d="M160,94 C162,120 162,140 158,160 L150,146 L152,166 L144,150 C146,128 148,110 148,96 Z" fill="#0a0a0a"/>
         <path d="M68,96 Q78,89 89,95" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
         <path d="M111,95 Q122,89 132,96" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <ellipse cx="78" cy="112" rx="7.5" ry="9.5" fill="#0a0a0a"/>
-        <ellipse cx="122" cy="112" rx="7.5" ry="9.5" fill="#0a0a0a"/>
-        <circle cx="80" cy="110" r="1.6" fill="#f5f0e6"/>
-        <circle cx="124" cy="110" r="1.6" fill="#f5f0e6"/>
-        <circle cx="68" cy="140" r="15" fill="#c13a2a" opacity=".82"/>
-        <circle cx="132" cy="140" r="15" fill="#c13a2a" opacity=".82"/>
+        <ellipse cx="78" cy="112" rx="7.5" ry="9.5" fill="#0a0a0a"/><ellipse cx="122" cy="112" rx="7.5" ry="9.5" fill="#0a0a0a"/>
+        <circle cx="80" cy="110" r="1.6" fill="#f5f0e6"/><circle cx="124" cy="110" r="1.6" fill="#f5f0e6"/>
+        <circle cx="68" cy="140" r="15" fill="#c13a2a" opacity=".82"/><circle cx="132" cy="140" r="15" fill="#c13a2a" opacity=".82"/>
         <path d="M100,122 L96.5,138 Q100,142 103.5,138 Z" fill="#00000020"/>
         <ellipse cx="100" cy="164" rx="7" ry="4.6" fill="#b03024"/>
         <path d="M90,161 Q100,171 110,161" stroke="#b03024" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-        <path d="M60,120 L74,126 M140,118 L128,124 M84,186 L92,192" stroke="#00000018" stroke-width="1.4" fill="none"/>
       </g>
     </symbol>
-    <!-- 举旗的它 -->
-    <symbol id="guide-body" viewBox="0 0 260 520">
-      <g filter="url(#faceDisplace)">
-        <path d="M110,96 C84,102 74,136 72,186 L64,420 L80,412 L76,516 L98,512 L102,432 L112,438 L122,432 L126,512 L148,516 L144,412 L160,420 L152,186 C150,136 140,102 110,96 Z" fill="#000"/>
-        <path d="M74,140 C60,172 54,220 52,268 L62,262 C66,220 70,180 78,152 Z" fill="#000"/>
-        <path d="M146,132 C160,112 172,88 178,62 L190,68 C184,96 170,124 156,148 Z" fill="#000"/>
-        <rect x="182" y="16" width="4.5" height="120" fill="#3a2f28"/>
-        <g class="flag-wave">
-          <path d="M186,18 L250,26 L245,60 L186,52 Z" fill="#c0392b"/>
-          <text id="flagText" x="196" y="45" fill="#fff" font-size="17" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-weight="700">安途</text>
-        </g>
-        <circle cx="110" cy="60" r="35" fill="#000"/>
-        <use href="#paper-face" x="74" y="22" width="72" height="94" opacity=".95"/>
-        <path d="M74,42 C70,90 68,130 64,168 L76,150 L74,182 L84,158 C82,116 80,80 82,52 Z" fill="#000"/>
-        <path d="M146,42 C150,90 152,130 156,168 L144,150 L146,182 L136,158 C138,116 140,80 138,52 Z" fill="#000"/>
+    <symbol id="av-paper" viewBox="0 0 80 80"><rect width="80" height="80" fill="#171212"/><use href="#paper-face" x="8" y="-2" width="64" height="84"/></symbol>
+    <symbol id="av-an" viewBox="0 0 80 80"><rect width="80" height="80" fill="#dcefe3"/><circle cx="40" cy="42" r="20" fill="#f0c9a6"/><path d="M20,40 C20,20 30,14 40,14 C50,14 60,20 60,40 C54,28 46,25 40,26 C34,25 26,28 20,40 Z" fill="#2e3350"/><circle cx="33" cy="42" r="2.4" fill="#22263a"/><circle cx="47" cy="42" r="2.4" fill="#22263a"/><path d="M33,52 Q40,57 47,52" stroke="#b5825c" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M14,80 C14,64 26,58 40,58 C54,58 66,64 66,80 Z" fill="#0d9488"/><path d="M58,10 L58,26 M58,10 L70,13 L58,17" stroke="#c0392b" stroke-width="2" fill="#c0392b"/></symbol>
+    <symbol id="av-wang" viewBox="0 0 80 80"><rect width="80" height="80" fill="#f3e3d3"/><circle cx="40" cy="42" r="20" fill="#f3d3b3"/><path d="M19,42 C17,20 30,13 40,13 C50,13 63,20 61,42 C58,30 52,26 48,28 C44,22 36,22 32,28 C28,26 22,30 19,42 Z" fill="#4a3a30"/><circle cx="33" cy="42" r="2.4" fill="#22263a"/><circle cx="47" cy="42" r="2.4" fill="#22263a"/><path d="M33,52 Q40,57 47,52" stroke="#c09468" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M14,80 C14,64 26,58 40,58 C54,58 66,64 66,80 Z" fill="#b06a8a"/></symbol>
+    <symbol id="av-zhang" viewBox="0 0 80 80"><rect width="80" height="80" fill="#e3e8f3"/><circle cx="40" cy="44" r="19" fill="#e8b98e"/><path d="M20,38 C22,22 32,17 40,17 C48,17 58,22 60,38 L58,32 C50,24 30,24 22,32 Z" fill="#3a3f4a"/><rect x="20" y="30" width="40" height="6" rx="3" fill="#3a3f4a"/><circle cx="33" cy="44" r="2.4" fill="#22263a"/><circle cx="47" cy="44" r="2.4" fill="#22263a"/><path d="M34,54 L46,54" stroke="#a9764f" stroke-width="2" stroke-linecap="round"/><path d="M14,80 C14,64 26,58 40,58 C54,58 66,64 66,80 Z" fill="#5b6470"/><rect x="30" y="64" width="20" height="12" rx="3" fill="#22263a"/><circle cx="40" cy="70" r="4" fill="#5b6470"/></symbol>
+    <symbol id="av-may" viewBox="0 0 80 80"><rect width="80" height="80" fill="#f3dce8"/><circle cx="40" cy="42" r="20" fill="#f0c9a6"/><path d="M19,44 C17,18 30,12 40,12 C50,12 63,18 61,44 L56,60 L52,42 C48,30 32,30 28,42 L24,60 Z" fill="#3a2a28"/><circle cx="33" cy="42" r="2.4" fill="#22263a"/><circle cx="47" cy="42" r="2.4" fill="#22263a"/><path d="M34,52 Q40,56 46,52" stroke="#b5825c" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M14,80 C14,64 26,58 40,58 C54,58 66,64 66,80 Z" fill="#e8a0b4"/></symbol>
+    <symbol id="av-liu" viewBox="0 0 80 80"><rect width="80" height="80" fill="#e8f3dc"/><circle cx="40" cy="42" r="20" fill="#f3d3b3"/><path d="M20,38 C22,20 32,15 40,15 C48,15 58,20 60,38 C52,28 28,28 20,38 Z" fill="#2e3350"/><circle cx="33" cy="43" r="5" fill="none" stroke="#22263a" stroke-width="1.8"/><circle cx="47" cy="43" r="5" fill="none" stroke="#22263a" stroke-width="1.8"/><path d="M38,43 L42,43" stroke="#22263a" stroke-width="1.8"/><circle cx="33" cy="43" r="1.8" fill="#22263a"/><circle cx="47" cy="43" r="1.8" fill="#22263a"/><path d="M34,53 Q40,57 46,53" stroke="#c09468" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M14,80 C14,64 26,58 40,58 C54,58 66,64 66,80 Z" fill="#7a9a5a"/></symbol>
+    <symbol id="av-zhou" viewBox="0 0 80 80"><rect width="80" height="80" fill="#e0e0e0"/><circle cx="40" cy="44" r="19" fill="#dcb48c"/><path d="M20,38 C22,22 32,17 40,17 C48,17 58,22 60,38 L58,32 C50,24 30,24 22,32 Z" fill="#6b6b6b"/><rect x="20" y="30" width="40" height="6" rx="3" fill="#4a4a4a"/><circle cx="33" cy="44" r="2.2" fill="#22263a"/><circle cx="47" cy="44" r="2.2" fill="#22263a"/><path d="M34,55 L46,55" stroke="#a9764f" stroke-width="2" stroke-linecap="round"/><path d="M30,50 L32,52 M50,50 L48,52" stroke="#a9764f" stroke-width="1.4"/><path d="M14,80 C14,64 26,58 40,58 C54,58 66,64 66,80 Z" fill="#4a5560"/></symbol>
+    <symbol id="av-me" viewBox="0 0 80 80"><rect width="80" height="80" fill="#cfd6dd"/><circle cx="40" cy="32" r="13" fill="#8a949e"/><path d="M16,72 C16,54 28,48 40,48 C52,48 64,54 64,72 Z" fill="#8a949e"/></symbol>
+    <symbol id="av-file" viewBox="0 0 80 80"><rect width="80" height="80" fill="#3f8cff"/><path d="M24 20 L46 20 L56 30 L56 60 L24 60 Z" fill="#fff"/><path d="M46 20 L46 30 L56 30" fill="#cfe3ff"/><rect x="30" y="38" width="20" height="3" fill="#3f8cff"/><rect x="30" y="46" width="14" height="3" fill="#3f8cff"/></symbol>
+    <symbol id="av-family" viewBox="0 0 80 80"><rect width="80" height="80" fill="#f7c948"/><circle cx="30" cy="36" r="10" fill="#a3541c"/><circle cx="50" cy="36" r="10" fill="#a3541c"/><path d="M14,66 C14,52 24,48 30,48 C36,48 40,52 40,52 C40,52 44,48 50,48 C56,48 66,52 66,66 Z" fill="#a3541c"/></symbol>
+    <!-- photos -->
+    <symbol id="ph-mountain" viewBox="0 0 320 200">
+      <rect width="320" height="200" fill="#f7d9b0"/>
+      <circle cx="230" cy="70" r="26" fill="#ffb36b"/>
+      <path d="M0,120 L70,70 L140,125 L210,80 L320,130 L320,200 L0,200 Z" fill="#c9a27a"/>
+      <path d="M0,150 L90,105 L180,155 L260,115 L320,150 L320,200 L0,200 Z" fill="#8a6f52"/>
+      <path d="M0,178 L120,150 L240,180 L320,160 L320,200 L0,200 Z" fill="#5a4632"/>
+      <path d="M140,200 C150,180 170,170 200,168 C240,166 270,175 300,200 Z" fill="#3f3226"/>
+      <g class="hid">
+        <path d="M208,112 C206,106 210,104 211,104 C212,104 216,106 214,112 L215,122 L207,122 Z" fill="#0a0a0a"/>
+        <circle cx="211" cy="102" r="3" fill="#0a0a0a"/>
+        <path d="M96,140 C94,134 98,132 99,132 C100,132 104,134 102,140 L103,150 L95,150 Z" fill="#0a0a0a" opacity=".8"/>
+        <circle cx="99" cy="130" r="3" fill="#0a0a0a" opacity=".8"/>
       </g>
+    </symbol>
+    <symbol id="ph-service" viewBox="0 0 320 200">
+      <rect width="320" height="200" fill="#0c0f16"/>
+      <rect x="30" y="70" width="150" height="70" fill="#1a2029"/>
+      <rect x="42" y="82" width="20" height="16" fill="#3d4a3a"/><rect x="72" y="82" width="20" height="16" fill="#3d4a3a"/>
+      <rect x="102" y="82" width="20" height="16" fill="#4a4a3a"/><rect x="132" y="82" width="20" height="16" fill="#3d4a3a"/>
+      <rect x="30" y="60" width="150" height="12" fill="#232b36"/>
+      <text x="52" y="69" fill="#7a8a9a" font-size="8" font-family="sans-serif">服务区</text>
+      <rect x="200" y="96" width="96" height="44" rx="8" fill="#14181f"/>
+      <rect x="208" y="104" width="16" height="12" fill="#232b36"/><rect x="228" y="104" width="16" height="12" fill="#232b36"/>
+      <rect x="248" y="104" width="16" height="12" fill="#232b36"/><rect x="268" y="104" width="16" height="12" fill="#232b36"/>
+      <circle cx="216" cy="142" r="7" fill="#0a0d12"/><circle cx="280" cy="142" r="7" fill="#0a0d12"/>
+      <rect x="0" y="150" width="320" height="50" fill="#10131a"/>
+      <ellipse cx="105" cy="160" rx="60" ry="6" fill="#2a3040" opacity=".4"/>
+      <g class="hid">
+        <circle cx="216" cy="110" r="4" fill="#e8e2d4"/><circle cx="236" cy="110" r="4" fill="#e8e2d4"/>
+        <circle cx="256" cy="110" r="4" fill="#e8e2d4"/><circle cx="276" cy="110" r="4" fill="#e8e2d4"/>
+        <circle cx="215" cy="109" r="1" fill="#0a0a0a"/><circle cx="217" cy="109" r="1" fill="#0a0a0a"/>
+        <circle cx="235" cy="109" r="1" fill="#0a0a0a"/><circle cx="237" cy="109" r="1" fill="#0a0a0a"/>
+        <circle cx="255" cy="109" r="1" fill="#0a0a0a"/><circle cx="257" cy="109" r="1" fill="#0a0a0a"/>
+        <circle cx="275" cy="109" r="1" fill="#0a0a0a"/><circle cx="277" cy="109" r="1" fill="#0a0a0a"/>
+        <path d="M160,128 C157,120 162,117 163,117 C164,117 169,120 166,128 L168,150 L158,150 Z" fill="#050505"/>
+        <circle cx="163" cy="114" r="4.5" fill="#e8e2d4"/>
+        <circle cx="161.5" cy="113" r="1" fill="#0a0a0a"/><circle cx="164.5" cy="113" r="1" fill="#0a0a0a"/>
+        <circle cx="160" cy="116" r="1.6" fill="#c13a2a"/><circle cx="166" cy="116" r="1.6" fill="#c13a2a"/>
+      </g>
+    </symbol>
+    <symbol id="map-mini" viewBox="0 0 300 120">
+      <rect width="300" height="120" fill="#eaf0ea"/>
+      <path d="M0,40 L300,40 M0,84 L300,84 M60,0 L60,120 M150,0 L150,120 M240,0 L240,120" stroke="#ffffff" stroke-width="7"/>
+      <path d="M0,40 L300,40 M150,0 L150,120" stroke="#f7e9c8" stroke-width="9"/>
+      <rect x="76" y="52" width="34" height="22" fill="#d8e2d8"/><rect x="190" y="12" width="40" height="20" fill="#d8e2d8"/>
+      <circle cx="150" cy="40" r="8" fill="#3f8cff" opacity=".25"/>
+      <circle cx="150" cy="40" r="4.5" fill="#3f8cff" stroke="#fff" stroke-width="1.5"/>
     </symbol>
   </defs>
 </svg>
 
-<header id="nav">
-  <a id="logo" href="#hero">
-    <svg viewBox="0 0 64 64"><rect x="10" y="16" width="44" height="30" rx="8" fill="var(--accent)"/><rect x="16" y="22" width="12" height="10" rx="2" fill="#fff"/><rect x="32" y="22" width="12" height="10" rx="2" fill="#fff"/><circle cx="20" cy="48" r="6" fill="#222"/><circle cx="44" cy="48" r="6" fill="#222"/><path d="M52 8 L52 20 M52 8 L62 11 L52 15" stroke="#c0392b" stroke-width="2.5" fill="#c0392b"/></svg>
-    <span id="logoText">安途旅游</span>
-  </a>
-  <nav id="navLinks">
-    <a href="#features" data-nav>线路</a>
-    <a href="#itinerary" data-nav>行程</a>
-    <a href="#reviews" data-nav>评价</a>
-    <a href="#team" data-nav>导游</a>
-  </nav>
-  <div id="navRight">
-    <button id="soundBtn" title="环境音效">🔇 音效关</button>
-    <a href="#cta" id="navCta" class="btn small">立即报名</a>
-  </div>
+<div id="statusbar">
+  <span id="sbTime">--:--</span>
+  <span class="right">
+    <span id="sbCarrier">中国移动</span>
+    <span class="sig" id="sbSig"><i></i><i></i><i></i><i></i></span>
+    <span id="sbBatt">100%</span>
+  </span>
+</div>
+
+<header id="topbar">
+  <button class="back" id="backBtn">‹</button>
+  <div id="grpTitle"><span id="grpName">云栖山三日团·友群</span> <span id="grpCount">(45)</span></div>
+  <button class="icon-btn" id="soundBtn" title="环境音效">🔇</button>
+  <button class="icon-btn" id="menuBtn">⋯</button>
 </header>
 
-<main id="page">
+<div id="notice"><b>群公告</b> <span id="noticeText">明早 7:00 体育馆东门集合 · 车牌尾号 7438 · 认准小红旗 🚩</span></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div>
-      <div class="kicker">ANTU TRAVEL · 特价团</div>
-      <h1 data-corrupt>99 元，<em>云栖山</em><br>3 日 2 晚。</h1>
-      <p class="sub">纯玩无购物 · 全程空调大巴 · 持证导游 · 含 2 早 3 正餐 · 旅游意外险全覆盖。每一次出发，都平安归来。</p>
-      <div class="cta-row">
-        <a href="#cta" class="btn">立即报名 ¥99</a>
-        <a href="#itinerary" class="btn ghost">查看行程</a>
-      </div>
-      <div class="tiny">已有 12,800+ 游客选择安途 · 天天发团 · 风雨无阻</div>
-    </div>
-    <div class="bus-wrap">
-      <div class="chip c1" id="seatChip">✓ 已报名 32/45</div>
-      <svg id="busSvg" viewBox="0 0 460 240" aria-hidden="true">
-        <rect x="60" y="36" width="184" height="27" rx="6" fill="#101418"/>
-        <text id="ledSign" x="72" y="55" fill="#ffb000" font-size="15">云栖山 ¥99</text>
-        <rect x="20" y="62" width="400" height="132" rx="24" fill="url(#busGrad)" stroke="#cfd8de" stroke-width="2"/>
-        <rect x="20" y="150" width="400" height="16" fill="var(--accent)" opacity=".85"/>
-        <text x="66" y="140" fill="var(--accent)" font-size="21" font-weight="800" font-family="PingFang SC,Microsoft YaHei,sans-serif">安途旅游</text>
-        <text x="66" y="182" fill="#8a949c" font-size="10" letter-spacing="2">ANTU TRAVEL</text>
-        <rect x="50" y="80" width="56" height="46" rx="8" fill="#1d2733"/>
-        <rect x="118" y="80" width="56" height="46" rx="8" fill="#1d2733"/>
-        <rect x="186" y="80" width="56" height="46" rx="8" fill="#1d2733"/>
-        <rect x="254" y="80" width="56" height="46" rx="8" fill="#1d2733"/>
-        <g fill="#0b0f14" opacity=".92">
-          <circle cx="78" cy="103" r="9"/><path d="M64,126 C64,114 92,114 92,126 Z"/>
-          <circle cx="146" cy="101" r="9"/><path d="M132,126 C132,112 160,112 160,126 Z"/>
-          <circle cx="214" cy="104" r="9"/><path d="M200,126 C200,115 228,115 228,126 Z"/>
-        </g>
-        <use class="bus-face" href="#paper-face" x="262" y="82" width="40" height="52"/>
-        <rect x="330" y="80" width="76" height="62" rx="10" fill="#1d2733"/>
-        <rect x="336" y="150" width="34" height="40" rx="5" fill="#16202b" stroke="#cfd8de"/>
-        <rect x="410" y="150" width="12" height="17" rx="3" fill="#ffd97a"/>
-        <circle cx="110" cy="196" r="26" fill="#14181d"/><circle cx="110" cy="196" r="10" fill="#2c333a"/>
-        <circle cx="350" cy="196" r="26" fill="#14181d"/><circle cx="350" cy="196" r="10" fill="#2c333a"/>
-      </svg>
-      <div class="chip c2" id="insChip">✓ 含旅游意外险</div>
-    </div>
-  </section>
+<aside id="sidebar">
+  <div class="me">
+    <div class="ava" data-ava="me"><svg viewBox="0 0 80 80"><use href="#av-me"/></svg></div>
+    <div class="n">你</div>
+  </div>
+  <div class="search">🔍 搜索</div>
+  <div class="side-chat active">
+    <div class="ava"><svg viewBox="0 0 80 80"><use href="#av-an"/></svg></div>
+    <div class="info"><div class="n" id="sideGrpName">云栖山三日团·友群</div><div class="p" id="sideGrpPrev">导游小安：明早 7:00 集合…</div></div>
+  </div>
+  <div class="side-chat" data-preview="family">
+    <div class="ava"><svg viewBox="0 0 80 80"><use href="#av-family"/></svg></div>
+    <div class="info"><div class="n">相亲相爱一家人</div><div class="p">妈：这么晚还不睡？</div></div>
+    <span class="badge">2</span>
+  </div>
+  <div class="side-chat" data-preview="an">
+    <div class="ava"><svg viewBox="0 0 80 80"><use href="#av-an"/></svg></div>
+    <div class="info"><div class="n">导游小安</div><div class="p" id="sideAnPrev">明天见～</div></div>
+  </div>
+  <div class="side-chat" data-preview="file">
+    <div class="ava"><svg viewBox="0 0 80 80"><use href="#av-file"/></svg></div>
+    <div class="info"><div class="n">文件传输助手</div><div class="p" id="sideFilePrev">（无消息）</div></div>
+  </div>
+  <div class="side-chat" id="sideIt" data-preview="it">
+    <div class="ava"><svg viewBox="0 0 80 80"><use href="#av-paper"/></svg></div>
+    <div class="info"><div class="n">它</div><div class="p">旗在，人在。</div></div>
+    <span class="badge">46</span>
+  </div>
+</aside>
 
-  <!-- TRUST -->
-  <section id="trust">
-    <div class="t-label">合 作 景 区</div>
-    <div class="t-row">
-      <span data-trust>云栖山风景区</span>
-      <span data-trust>青石古镇</span>
-      <span data-trust>月牙湖</span>
-      <span data-trust>长寿村</span>
-      <span data-trust>望乡台</span>
-    </div>
-  </section>
+<main id="log"></main>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="kicker">WHY ANTU</div>
-    <h2 class="sec" data-corrupt>为什么选择安途</h2>
-    <p class="sec-sub">十年老社，资质齐全。我们把每一位游客，都当作家人。数得清清楚楚的那种家人。</p>
-    <div class="grid3">
-      <div class="card">
-        <div class="ico">🚌</div>
-        <h3>纯玩无购物</h3>
-        <p data-corrupt>全程不进任何购物店。我们只进一次村。进村之后，行程就由村里安排了。</p>
-      </div>
-      <div class="card">
-        <div class="ico">🚩</div>
-        <h3>持证导游全程陪同</h3>
-        <p data-corrupt>导游小安，举旗十年，从不让任何一个人掉队。掉队的人，她会亲自去接。无论在哪。</p>
-      </div>
-      <div class="card">
-        <div class="ico">🛡️</div>
-        <h3>旅游意外险全覆盖</h3>
-        <p data-corrupt>全程覆盖，保额充足。受益人一栏，报名时由旅行社代为填写。你不用操心。你什么都不用操心了。</p>
-      </div>
-    </div>
-  </section>
+<footer id="inputbar">
+  <button class="icon-btn" id="voiceModeBtn">🎤</button>
+  <input id="chatInput" type="text" placeholder="说点什么…" maxlength="80" autocomplete="off">
+  <button class="icon-btn" id="emojiBtn">😊</button>
+  <button class="icon-btn" id="plusBtn">＋</button>
+  <button id="sendBtn">发送</button>
+</footer>
+<div id="plusPanel">
+  <button class="plus-item" id="plusPhoto"><span class="pic">🖼️</span>相册</button>
+  <button class="plus-item" id="plusLoc"><span class="pic">📍</span>位置</button>
+  <button class="plus-item" id="plusRp"><span class="pic">🧧</span>红包</button>
+</div>
 
-  <!-- ITINERARY -->
-  <section id="itinerary">
-    <div class="kicker">ITINERARY</div>
-    <h2 class="sec" data-corrupt>行程安排</h2>
-    <p class="sec-sub">三天两晚，张弛有度。请认准导游的小红旗。旗在，人在。旗不在……别找。</p>
-    <div class="days">
-      <div class="day">
-        <span class="day-badge">DAY 1</span>
-        <div class="it-row"><span class="it-time">07:00</span><span data-corrupt>集合出发。迟到不等。大巴从来不等人，也不等别的。</span></div>
-        <div class="it-row"><span class="it-time">11:00</span><span data-corrupt>云栖山风景区。登山步道全长 3 公里。原路返回。</span></div>
-        <div class="it-row"><span class="it-time">18:00</span><span data-corrupt>入住山脚酒店。含晚餐。肉有点凉，请多包涵。</span></div>
-        <div class="it-note">温馨提示：夜间请勿离开酒店。山里的雾，认人。</div>
-      </div>
-      <div class="day">
-        <span class="day-badge">DAY 2</span>
-        <div class="it-row"><span class="it-time">06:00</span><span data-corrupt>看日出。如果太阳出来的话。</span></div>
-        <div class="it-row"><span class="it-time">10:00</span><span data-corrupt>雾隐村。导航会失灵，属于正常现象。请跟紧小红旗。</span></div>
-        <div class="it-row"><span class="it-time">14:00</span><span data-alt="民俗表演：纸人戏。别看台上。看台下。">民俗表演：当地戏曲，非常热闹。</span></div>
-        <div class="it-row"><span class="it-time">19:00</span><span data-corrupt>篝火晚会。村民们很热情。他们数人的方式，和我们不一样。</span></div>
-        <div class="it-note">温馨提示：篝火晚会上，如果有人喊你的全名，不要答应。</div>
-      </div>
-      <div class="day">
-        <span class="day-badge">DAY 3</span>
-        <div class="it-row"><span class="it-time">08:00</span><span data-alt="没有返程。第 3 天是永久的。">集合返程。请清点随身物品。</span></div>
-        <div class="it-row"><span class="it-time">12:00</span><span data-corrupt>途经服务区。自由活动 20 分钟。请面朝公路站立。</span></div>
-        <div class="it-row"><span class="it-time">18:00</span><span data-alt="抵达它选的地方。">抵达温馨的家。结束愉快旅程。</span></div>
-        <div class="it-note">温馨提示：返程大巴上，请确认坐在你旁边的人，上车时就在。</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section id="reviews">
-    <div class="kicker">REVIEWS</div>
-    <h2 class="sec" data-corrupt>游客评价</h2>
-    <p class="sec-sub">真实出行，真实评价。每一条我们都认真读过。反复地读。出声地读。</p>
-    <div class="grid3">
-      <div class="card">
-        <div class="stars">★★★★★</div>
-        <p class="review-q" data-corrupt>“带爸妈去的，老人家很开心。导游小红旗一路举着，生怕我们走丢。餐也好吃，就是肉有点凉。”</p>
-        <div class="review-who">刘女士 · 夕阳红团</div>
-      </div>
-      <div class="card">
-        <div class="stars">★★★★★</div>
-        <p class="review-q" data-corrupt>“大巴开了很久很久，司机总说快到了。窗外一直是同一片雾。好评。导游说，必须好评。”</p>
-        <div class="review-who">张先生 · 摄影团</div>
-      </div>
-      <div class="card">
-        <div class="stars">★★★★★</div>
-        <p class="review-q" data-corrupt>“我没有报名。大巴停在我家楼下。导游举着小红旗，念了我的名字。车上还有空位。五星。”</p>
-        <div class="review-who" data-alt="第 46 位游客 · 你">第 46 位游客</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section id="stats">
-    <div class="grid4">
-      <div class="stat"><div class="v" id="st1">12,800+</div><div class="l" id="sl1">累计出发（人）</div></div>
-      <div class="stat"><div class="v" id="st2">100%</div><div class="l" id="sl2">好评率</div></div>
-      <div class="stat"><div class="v" id="st3">0</div><div class="l" id="sl3">安全事故</div></div>
-      <div class="stat"><div class="v" id="st4">45</div><div class="l" id="sl4">标准团人数</div></div>
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section id="team">
-    <div class="kicker">OUR CREW</div>
-    <h2 class="sec" data-corrupt>为你服务的人</h2>
-    <p class="sec-sub">一车人，一个都不少。这是我们对你的承诺。也是它对它的承诺。</p>
-    <div class="grid4">
-      <div class="card">
-        <div class="avatar"><svg viewBox="0 0 96 96">
-          <g class="g-good"><rect width="96" height="96" fill="#f3ede1"/><path d="M14,96 C14,74 30,66 48,66 C66,66 82,74 82,96 Z" fill="#0d9488"/><circle cx="48" cy="46" r="24" fill="#f0c9a6"/><path d="M24,42 C24,22 36,16 48,16 C60,16 72,22 72,42 C64,30 56,27 48,28 C40,27 32,30 24,42 Z" fill="#2e3350"/><circle cx="39" cy="46" r="3" fill="#22263a"/><circle cx="57" cy="46" r="3" fill="#22263a"/><path d="M39,58 Q48,65 57,58" stroke="#b5825c" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
-          <g class="g-bad"><rect width="96" height="96" fill="#141010"/><use href="#paper-face" x="10" y="0" width="76" height="99"/></g>
-        </svg></div>
-        <h3 data-alt="它">小安</h3>
-        <div class="team-role">金牌导游</div>
-        <p data-corrupt>“举旗十年。旗在，人在。”</p>
-      </div>
-      <div class="card">
-        <div class="avatar"><svg viewBox="0 0 96 96">
-          <g class="g-good"><rect width="96" height="96" fill="#f3ede1"/><path d="M14,96 C14,74 30,66 48,66 C66,66 82,74 82,96 Z" fill="#5b6470"/><circle cx="48" cy="46" r="24" fill="#e8b98e"/><path d="M24,40 C26,20 38,15 48,15 C60,15 70,21 72,40 C62,28 34,28 24,40 Z" fill="#3a3a3a"/><circle cx="39" cy="46" r="3" fill="#22263a"/><circle cx="57" cy="46" r="3" fill="#22263a"/><path d="M40,58 Q48,62 56,58" stroke="#a9764f" stroke-width="2.4" fill="none" stroke-linecap="round"/></g>
-          <g class="g-bad"><rect width="96" height="96" fill="#141010"/><circle cx="48" cy="46" r="24" fill="#cfc6b8"/><path d="M24,40 C26,20 38,15 48,15 C60,15 70,21 72,40 C62,28 34,28 24,40 Z" fill="#0a0a0a"/><ellipse cx="39" cy="47" rx="5.5" ry="7.5" fill="#070707"/><ellipse cx="57" cy="47" rx="5.5" ry="7.5" fill="#070707"/><path d="M38,60 L58,60" stroke="#070707" stroke-width="2.5"/></g>
-        </svg></div>
-        <h3 data-alt="没有脸">老周</h3>
-        <div class="team-role">夜班司机</div>
-        <p data-corrupt>“开了三十年夜班。他说路是活的。最近，路在往回长。”</p>
-      </div>
-      <div class="card">
-        <div class="avatar"><svg viewBox="0 0 96 96">
-          <g class="g-good"><rect width="96" height="96" fill="#f3ede1"/><path d="M14,96 C14,74 30,66 48,66 C66,66 82,74 82,96 Z" fill="#e8e4da"/><circle cx="48" cy="46" r="24" fill="#f3d3b3"/><path d="M24,44 C22,20 36,14 48,14 C62,14 74,22 72,46 C66,30 58,26 48,27 C38,26 30,30 24,44 Z" fill="#6b6b6b"/><circle cx="39" cy="46" r="3" fill="#22263a"/><circle cx="57" cy="46" r="3" fill="#22263a"/><path d="M40,57 Q48,63 56,57" stroke="#c09468" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M44,72 L52,72 M48,68 L48,76" stroke="#c0392b" stroke-width="3"/></g>
-          <g class="g-bad"><rect width="96" height="96" fill="#141010"/><use href="#paper-face" x="10" y="0" width="76" height="99"/></g>
-        </svg></div>
-        <h3 data-alt="它">白医生</h3>
-        <div class="team-role">随团医护</div>
-        <p data-corrupt>“只负责确认。不负责救治。”</p>
-      </div>
-      <div class="card">
-        <div class="avatar"><svg viewBox="0 0 96 96"><rect width="96" height="96" fill="#0b0808"/><use href="#paper-face" x="10" y="0" width="76" height="99" style="filter:brightness(.7)"/></svg></div>
-        <h3>▓▓▓</h3>
-        <div class="team-role">第 46 位</div>
-        <p data-corrupt>“它没有报名。它一直在车上。它坐最后一排。它说，这次轮到它当导游。”</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="kicker">FAQ</div>
-    <h2 class="sec" data-corrupt>常见问题</h2>
-    <p class="sec-sub">报名前，请先读完这一页。读完的人，都报名了。</p>
-    <div class="faq-item">
-      <button class="faq-q">为什么只要 99 元？<span class="arr">▶</span></button>
-      <div class="faq-a"><div data-corrupt>差价由其他游客补足。他们不介意。他们现在什么都不介意了。</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">可以中途离团吗？<span class="arr">▶</span></button>
-      <div class="faq-a"><div data-corrupt>不可以。车门只在站点打开。而站点，是它定的。上一位想离团的游客，现在还在服务区站着。面朝公路。</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">雾隐村在哪个省？<span class="arr">▶</span></button>
-      <div class="faq-a"><div data-corrupt>不在任何省。导航搜不到，地图上没有。但大巴知道路。它每次都走同一条路。那条路，最近变长了。</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">回程大巴几点发车？<span class="arr">▶</span></button>
-      <div class="faq-a"><div data-corrupt>回程？</div></div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta">
-    <div class="kicker">LAST SEATS</div>
-    <h2 class="sec" data-corrupt>现在报名，今晚发车。</h2>
-    <p class="price">特价 <b>¥99</b> <s>原价 ¥399</s> · 余位不多 · 第 46 个位置一直空着，是留给你的。</p>
-    <button id="buyBtn" class="btn">立即报名</button>
-    <div class="note">报名即视为同意《免责协议》。免责范围：一切。</div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="cols">
-      <div>
-        <h4 id="footLogo">安途旅游</h4>
-        <span data-corrupt>每一次出发，都平安归来。<br>大部分时候。</span>
-      </div>
-      <div>
-        <h4>线路</h4>
-        <a href="#hero" data-alt="你床底">云栖山 3 日</a>
-        <a href="#hero" data-alt="没有回程">雾隐村 1 日</a>
-        <a href="#hero" data-alt="今晚 00:00">末班车专线</a>
-      </div>
-      <div>
-        <h4>支持</h4>
-        <a href="#faq" data-alt="别退了">退团说明</a>
-        <a href="#faq" data-alt="它定的">行程变更</a>
-        <a href="#faq" data-alt="它一直在">联系导游</a>
-      </div>
-      <div>
-        <h4>公司</h4>
-        <a href="#team" data-alt="我们都在车上">关于安途</a>
-        <a href="#team" data-alt="今晚入职">加入我们</a>
-        <a href="#reviews" data-alt="第 46 位须知">游客须知</a>
-      </div>
-    </div>
-    <div class="legal">© 2026 安途旅行社有限公司 · 安ICP备2026001号-1 · 本页不会收集你的任何信息</div>
-    <div class="end-mark">—— 已经到底啦 ——</div>
-  </footer>
-
-  <!-- ROAD -->
-  <section id="road">
-    <div class="road-sticky" id="roadSticky">
-      <svg id="roadSvg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <defs>
-          <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0b0e15"/><stop offset="100%" stop-color="#05060a"/>
-          </linearGradient>
-          <linearGradient id="roadG" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%" stop-color="#181a1f"/><stop offset="100%" stop-color="#08090c"/>
-          </linearGradient>
-        </defs>
-        <rect width="1000" height="600" fill="url(#skyG)"/>
-        <circle cx="820" cy="90" r="34" fill="#2a2e38" opacity=".5"/>
-        <circle cx="812" cy="84" r="30" fill="#0b0e15" opacity=".8"/>
-        <path d="M0,300 L120,240 L260,290 L400,250 L500,295 L620,245 L760,292 L900,252 L1000,300 L1000,320 L0,320 Z" fill="#07080c"/>
-        <polygon points="0,600 1000,600 560,300 440,300" fill="url(#roadG)"/>
-        <polygon points="0,600 30,600 448,300 440,300" fill="#3a3d44" opacity=".35"/>
-        <polygon points="1000,600 970,600 552,300 560,300" fill="#3a3d44" opacity=".35"/>
-        <g id="tunnel" transform="translate(500,300) scale(.4)">
-          <path d="M-130,60 L-130,-40 Q0,-150 130,-40 L130,60 Z" fill="#020203" stroke="#1c1e24" stroke-width="4"/>
-          <rect x="-90" y="-66" width="24" height="6" fill="#3d3423" class="lamp"/>
-          <rect x="66" y="-66" width="24" height="6" fill="#3d3423" class="lamp"/>
-        </g>
-        <g id="dashes" fill="#c9cdd4" opacity=".5">
-          <rect id="d0" x="499" y="310" width="2" height="5"/>
-          <rect id="d1" x="499" y="340" width="3" height="8"/>
-          <rect id="d2" x="498" y="380" width="4" height="12"/>
-          <rect id="d3" x="497" y="430" width="6" height="18"/>
-          <rect id="d4" x="496" y="490" width="8" height="26"/>
-          <rect id="d5" x="494" y="550" width="12" height="36"/>
-        </g>
-        <ellipse cx="500" cy="300" rx="300" ry="60" fill="#9aa4b0" opacity=".04"/>
-      </svg>
-      <div id="guide"><svg viewBox="0 0 260 520"><use href="#guide-body"/></svg></div>
-      <div class="road-fog"></div>
-      <div class="road-hud tl"><span class="rec-dot"></span>安途大巴 · 夜班 03 · 末班</div>
-      <div class="road-hud tr liveClock">--:--:--</div>
-      <div class="road-hud bl" id="speedHud">时速 60 km/h · 从未变过</div>
-      <div class="road-hud br" id="distHud">距雾隐村 12.0 km</div>
-      <div id="roadText">夜班大巴。满员 45 人。你是第 46 位。</div>
-    </div>
-  </section>
-
-  <!-- FINALE -->
-  <section id="finale">
-    <div class="fin-hud tl"><span class="rec-dot"></span>安途大巴 · 夜班 03 · 末班</div>
-    <div class="fin-hud tr liveClock">--:--:--</div>
-    <div class="fin-hud bl">乘客：46 · 第 46 位：你</div>
-    <div id="finLines"></div>
-    <div id="aftermath">
-      <p class="after-big">……到站了。</p>
-      <p>只是一个网站而已。你还在原来的地方，灯还亮着，窗外没有大巴。</p>
-      <p class="after-small">本页没有打开任何摄像头，没有收集任何信息，也没有任何东西离开屏幕。<br>刚才的一切，只发生在这块玻璃后面。深呼吸。</p>
-      <button id="againBtn" class="btn">回到开头</button>
-      <span id="stayLink">留在这里（大巴会回来）</span>
-    </div>
-  </section>
-
-</main>
-
-<!-- overlays -->
 <div id="noise"></div>
 <div id="scan"></div>
 <div id="vig"></div>
@@ -727,314 +484,558 @@ body.finale-on .fin-hud{opacity:.9}
 <div id="scare"><svg viewBox="0 0 200 260"><g filter="url(#scareDisplace)"><use href="#paper-face"/></g></svg></div>
 <div id="toasts"></div>
 
-<div id="cookie">
-  <span id="cookieText">本团使用「你」来凑人数。继续滚动，即视为报名。</span>
-  <button class="btn" id="cookieBtn">同意报名</button>
-</div>
+<div id="modal"><div id="modalCard"></div></div>
+<div id="drawerBg"></div>
+<div id="drawer"></div>
 
-<button id="chatBubble">💬 <span id="chatLabel">在线客服</span><span id="chatBadge">0</span></button>
-<div id="chatPanel">
-  <div class="chat-head">
-    <div class="chat-ava" id="chatAva">
-      <svg viewBox="0 0 96 96" id="chatAvaGood"><rect width="96" height="96" fill="#f3ede1"/><circle cx="48" cy="46" r="24" fill="#f0c9a6"/><path d="M24,42 C24,22 36,16 48,16 C60,16 72,22 72,42 C64,30 56,27 48,28 C40,27 32,30 24,42 Z" fill="#2e3350"/><circle cx="39" cy="46" r="3" fill="#22263a"/><circle cx="57" cy="46" r="3" fill="#22263a"/><path d="M39,58 Q48,65 57,58" stroke="#b5825c" stroke-width="2.4" fill="none"/></svg>
-      <svg viewBox="0 0 200 260" id="chatAvaBad" style="display:none"><use href="#paper-face"/></svg>
-    </div>
-    <div><div class="n" id="chatName">安途客服 · 小安</div><div class="s" id="chatStatus">在线 · 秒回</div></div>
-    <button class="chat-close" id="chatClose">✕</button>
-  </div>
-  <div id="chatMsgs"></div>
-  <div class="chat-input">
-    <input id="chatInput" type="text" placeholder="输入消息…" maxlength="60" autocomplete="off">
-    <button id="chatSend">发送</button>
+<div id="aftermath">
+  <div class="card">
+    <p class="big">……群聊已解散。</p>
+    <p>只是一个网站而已。你还在原来的地方，灯还亮着，窗外没有大巴。</p>
+    <p class="small">本页没有打开任何摄像头，没有收集任何信息，也没有任何东西离开屏幕。<br>刚才的一切，只发生在这块玻璃后面。深呼吸。</p>
+    <button class="btn" id="againBtn">重新进群</button>
+    <span id="stayLink">留在群里（它会更近）</span>
   </div>
 </div>
 
 <script>
 (function(){
 'use strict';
-/* ================= helpers ================= */
-var $ = function(s){ return document.querySelector(s); };
-var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
-var clamp = function(v,a,b){ return v<a?a:(v>b?b:v); };
-var rand = function(a,b){ return a + Math.random()*(b-a); };
-var pick = function(arr){ return arr[Math.floor(Math.random()*arr.length)]; };
-var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function hexToRgb(h){
-  h = h.replace('#','');
-  return [parseInt(h.substr(0,2),16), parseInt(h.substr(2,2),16), parseInt(h.substr(4,2),16)];
-}
-function mixHex(a,b,t){
-  var A=hexToRgb(a), B=hexToRgb(b);
-  return 'rgb(' + Math.round(A[0]+(B[0]-A[0])*t) + ',' + Math.round(A[1]+(B[1]-A[1])*t) + ',' + Math.round(A[2]+(B[2]-A[2])*t) + ')';
-}
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var clamp=function(v,a,b){return v<a?a:(v>b?b:v)};
+var rand=function(a,b){return a+Math.random()*(b-a)};
+var pick=function(a){return a[Math.floor(Math.random()*a.length)]};
+var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function hexToRgb(h){h=h.replace('#','');return [parseInt(h.substr(0,2),16),parseInt(h.substr(2,2),16),parseInt(h.substr(4,2),16)]}
+function mixHex(a,b,t){var A=hexToRgb(a),B=hexToRgb(b);return 'rgb('+Math.round(A[0]+(B[0]-A[0])*t)+','+Math.round(A[1]+(B[1]-A[1])*t)+','+Math.round(A[2]+(B[2]-A[2])*t)+')'}
 function stops(list,p){
-  if(p<=list[0][0]) return mixHex(list[0][1],list[0][1],0);
-  for(var i=0;i<list.length-1;i++){
-    var a=list[i], b=list[i+1];
-    if(p>=a[0] && p<=b[0]){
-      var t=(p-a[0])/(b[0]-a[0]);
-      return mixHex(a[1],b[1],t);
-    }
-  }
-  var last=list[list.length-1][1];
-  return mixHex(last,last,0);
+  if(p<=list[0][0])return mixHex(list[0][1],list[0][1],0);
+  for(var i=0;i<list.length-1;i++){var a=list[i],b=list[i+1];
+    if(p>=a[0]&&p<=b[0]){return mixHex(a[1],b[1],(p-a[0])/(b[0]-a[0]))}}
+  var l=list[list.length-1][1];return mixHex(l,l,0);
 }
-var PAL = {
-  bg:    [[0,'#fdf9f2'],[.32,'#efe6d8'],[.55,'#241a16'],[.78,'#0a0605'],[1,'#030201']],
-  ink:   [[0,'#26221c'],[.32,'#4a3f33'],[.55,'#cfc2b2'],[1,'#b3a695']],
-  muted: [[0,'#8a8072'],[.5,'#857a6c'],[1,'#6f6455']],
-  accent:[[0,'#0d9488'],[.45,'#5b7a3a'],[.7,'#a11212'],[1,'#e01e0e']],
-  cta:   [[0,'#ff6b35'],[.5,'#b4532a'],[.75,'#8a0f0f'],[1,'#c01808']],
-  card:  [[0,'#ffffff'],[.32,'#f6efe2'],[.55,'#1b1310'],[1,'#0d0806']],
-  line:  [[0,'#eadfce'],[.5,'#3c2e26'],[1,'#251a15']]
+var PAL={
+  bg:[[0,'#ededed'],[.35,'#d8d2c8'],[.55,'#241d1a'],[.8,'#0c0807'],[1,'#050303']],
+  bubble:[[0,'#ffffff'],[.35,'#efe8dc'],[.55,'#2a221e'],[1,'#150f0c']],
+  self:[[0,'#95ec69'],[.45,'#9fb86a'],[.7,'#6b5a2a'],[1,'#5a1a12']],
+  ink:[[0,'#191919'],[.35,'#3c332c'],[.55,'#c9beb2'],[1,'#b3a695']],
+  muted:[[0,'#9a9a9a'],[.5,'#857a6c'],[1,'#6f6455']],
+  line:[[0,'#dcdcdc'],[.5,'#3c2e26'],[1,'#251a15']],
+  top:[[0,'#f7f7f7'],[.35,'#e8e0d2'],[.55,'#1d1613'],[1,'#0d0806']],
+  side:[[0,'#2e2e2e'],[.5,'#1a1512'],[1,'#080505']],
+  accent:[[0,'#07c160'],[.45,'#5b7a3a'],[.7,'#a11212'],[1,'#e01e0e']]
 };
 
 /* ================= state ================= */
-var root = document.documentElement;
-var page = $('#page');
-var sp = 0;
-var mx = innerWidth/2, my = innerHeight/2;
-var t0 = performance.now();
-var locked = false, finaleStarted = false, finaleDone = false, autoPulled = false;
-var creep = 0, roadFp = 0;
-var shakeUntil = 0;
-var visits = 1;
-try{
-  visits = (parseInt(localStorage.getItem('antu_visits')||'0',10)||0) + 1;
-  localStorage.setItem('antu_visits', String(visits));
-}catch(e){}
-if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+var root=document.documentElement, sp=0, t0=performance.now();
+var locked=false, finaleStarted=false, finaleDone=false;
+var shakeUntil=0, visits=1;
+try{visits=(parseInt(localStorage.getItem('antu_visits')||'0',10)||0)+1;localStorage.setItem('antu_visits',String(visits))}catch(e){}
+if('scrollRestoration' in history)history.scrollRestoration='manual';
 scrollTo(0,0);
-
-var batteryLevel = null;
-if(navigator.getBattery){ navigator.getBattery().then(function(b){ batteryLevel = b.level; }).catch(function(){}); }
+var batteryLevel=null;
+if(navigator.getBattery){navigator.getBattery().then(function(b){batteryLevel=b.level}).catch(function(){})}
 
 /* noise tile */
 (function(){
-  var c=document.createElement('canvas'); c.width=c.height=160;
-  var g=c.getContext('2d'), id=g.createImageData(160,160), d=id.data;
-  for(var i=0;i<d.length;i+=4){
-    var v=Math.floor(Math.random()*255);
-    d[i]=v; d[i+1]=v; d[i+2]=v;
-    d[i+3]= Math.random()<.55 ? 0 : Math.floor(20+Math.random()*46);
-  }
-  g.putImageData(id,0,0);
-  $('#noise').style.backgroundImage='url('+c.toDataURL()+')';
+  var c=document.createElement('canvas');c.width=c.height=160;
+  var g=c.getContext('2d'),id=g.createImageData(160,160),d=id.data;
+  for(var i=0;i<d.length;i+=4){var v=Math.floor(Math.random()*255);d[i]=v;d[i+1]=v;d[i+2]=v;d[i+3]=Math.random()<.55?0:Math.floor(20+Math.random()*46)}
+  g.putImageData(id,0,0);$('#noise').style.backgroundImage='url('+c.toDataURL()+')';
 })();
 
 /* ================= audio ================= */
-var sound = {
-  ctx:null, master:null, droneGain:null, noiseGain:null, lp:null,
-  on:false, userSet:false, muted:false, noiseBuf:null,
-  nextBeat:0, nextTick:0, tickHigh:true, nextHorn:0,
+var sound={
+  ctx:null,master:null,droneGain:null,noiseGain:null,lp:null,on:false,userSet:false,muted:false,noiseBuf:null,nextBeat:0,
   unlock:function(){
-    if(this.ctx){ if(this.ctx.state==='suspended') this.ctx.resume(); return; }
-    var AC = window.AudioContext || window.webkitAudioContext;
-    if(!AC) return;
-    var ctx = this.ctx = new AC();
-    var master = this.master = ctx.createGain();
-    master.gain.value = 0; master.connect(ctx.destination);
-    // engine rumble
-    var lp = this.lp = ctx.createBiquadFilter();
-    lp.type='lowpass'; lp.frequency.value=120; lp.Q.value=1.1;
-    var dg = this.droneGain = ctx.createGain(); dg.gain.value=0;
-    lp.connect(dg); dg.connect(master);
-    [28,28.7,56.3].forEach(function(f,i){
-      var o=ctx.createOscillator(); o.type = i<2?'sawtooth':'sine'; o.frequency.value=f;
-      var g=ctx.createGain(); g.gain.value = i<2? .5 : .22;
-      o.connect(g); g.connect(lp); o.start();
+    if(this.ctx){if(this.ctx.state==='suspended')this.ctx.resume();return}
+    var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
+    var ctx=this.ctx=new AC();
+    var master=this.master=ctx.createGain();master.gain.value=0;master.connect(ctx.destination);
+    var lp=this.lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=130;lp.Q.value=1.1;
+    var dg=this.droneGain=ctx.createGain();dg.gain.value=0;lp.connect(dg);dg.connect(master);
+    [30,30.6,60.2].forEach(function(f,i){
+      var o=ctx.createOscillator();o.type=i<2?'sawtooth':'sine';o.frequency.value=f;
+      var g=ctx.createGain();g.gain.value=i<2?.5:.2;o.connect(g);g.connect(lp);o.start();
     });
-    var lfo=ctx.createOscillator(); lfo.frequency.value=.11;
-    var lg=ctx.createGain(); lg.gain.value=45;
-    lfo.connect(lg); lg.connect(lp.frequency); lfo.start();
-    // road noise bed
-    var len=ctx.sampleRate*2, buf=ctx.createBuffer(1,len,ctx.sampleRate), ch=buf.getChannelData(0);
-    for(var i=0;i<len;i++) ch[i]=Math.random()*2-1;
+    var lfo=ctx.createOscillator();lfo.frequency.value=.1;var lg=ctx.createGain();lg.gain.value=45;
+    lfo.connect(lg);lg.connect(lp.frequency);lfo.start();
+    var len=ctx.sampleRate*2,buf=ctx.createBuffer(1,len,ctx.sampleRate),ch=buf.getChannelData(0);
+    for(var i=0;i<len;i++)ch[i]=Math.random()*2-1;
     this.noiseBuf=buf;
-    var src=ctx.createBufferSource(); src.buffer=buf; src.loop=true;
-    var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=700; bp.Q.value=.4;
-    var ng=this.noiseGain=ctx.createGain(); ng.gain.value=0;
-    src.connect(bp); bp.connect(ng); ng.connect(master); src.start();
+    var src=ctx.createBufferSource();src.buffer=buf;src.loop=true;
+    var bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=700;bp.Q.value=.4;
+    var ng=this.noiseGain=ctx.createGain();ng.gain.value=0;
+    src.connect(bp);bp.connect(ng);ng.connect(master);src.start();
   },
-  enable:function(){
-    this.unlock(); if(!this.ctx) return;
-    this.on=true; this.muted=false;
-    this.master.gain.setTargetAtTime(.9, this.ctx.currentTime, .4);
-    updateSoundBtn();
+  enable:function(){this.unlock();if(!this.ctx)return;this.on=true;this.muted=false;
+    this.master.gain.setTargetAtTime(.9,this.ctx.currentTime,.4);updateSoundBtn()},
+  disable:function(){this.on=false;if(this.ctx)this.master.gain.setTargetAtTime(0,this.ctx.currentTime,.25);updateSoundBtn()},
+  hush:function(){this.muted=true;if(this.ctx)this.master.gain.setTargetAtTime(0,this.ctx.currentTime,.12)},
+  update:function(p){if(!this.ctx||!this.on||this.muted)return;var t=this.ctx.currentTime;
+    this.droneGain.gain.setTargetAtTime(.025+p*.15,t,.3);
+    this.noiseGain.gain.setTargetAtTime(p>.25?(p-.25)*.06:0,t,.4);
+    this.lp.frequency.setTargetAtTime(130+p*280,t,.4)},
+  blip:function(f1,f2,vol,dur){
+    if(!this.ctx||!this.on||this.muted)return;
+    var ctx=this.ctx,t=ctx.currentTime,master=this.master;
+    [[f1,0],[f2,.09]].forEach(function(n){
+      var o=ctx.createOscillator();o.type='sine';o.frequency.value=n[0];
+      var g=ctx.createGain();g.gain.setValueAtTime(0,t+n[1]);
+      g.gain.linearRampToValueAtTime(vol,t+n[1]+.012);
+      g.gain.exponentialRampToValueAtTime(.001,t+n[1]+dur);
+      o.connect(g);g.connect(master);o.start(t+n[1]);o.stop(t+n[1]+dur+.05);
+    });
   },
-  disable:function(){
-    this.on=false;
-    if(this.ctx) this.master.gain.setTargetAtTime(0, this.ctx.currentTime, .25);
-    updateSoundBtn();
-  },
-  hush:function(){
-    this.muted=true;
-    if(this.ctx) this.master.gain.setTargetAtTime(0, this.ctx.currentTime, .12);
-  },
-  update:function(p){
-    if(!this.ctx || !this.on || this.muted) return;
-    var t=this.ctx.currentTime;
-    this.droneGain.gain.setTargetAtTime(.03 + p*.15, t, .3);
-    this.noiseGain.gain.setTargetAtTime(p>.25 ? (p-.25)*.06 : 0, t, .4);
-    this.lp.frequency.setTargetAtTime(120 + p*280, t, .4);
+  notify:function(){this.blip(1046,1568,.07,.12)},
+  send:function(){this.blip(880,880,.045,.07)},
+  coin:function(){this.blip(1318,1760,.08,.16)},
+  murmur:function(creepy){
+    if(!this.ctx||!this.on||this.muted)return;
+    var ctx=this.ctx,t=ctx.currentTime,dur=2.6;
+    var src=ctx.createBufferSource();src.buffer=this.noiseBuf;src.loop=true;
+    var bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=creepy?340:620;bp.Q.value=2.2;
+    var lfo=ctx.createOscillator();lfo.frequency.value=creepy?2.1:3.4;
+    var lg=ctx.createGain();lg.gain.value=creepy?180:220;
+    lfo.connect(lg);lg.connect(bp.frequency);
+    var g=ctx.createGain();
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(creepy?.16:.1,t+.15);
+    g.gain.setValueAtTime(creepy?.16:.1,t+dur-.5);g.gain.exponentialRampToValueAtTime(.001,t+dur);
+    src.connect(bp);bp.connect(g);g.connect(this.master);
+    src.start(t);src.stop(t+dur);lfo.start(t);lfo.stop(t+dur);
+    if(creepy){
+      var o=ctx.createOscillator();o.type='sine';o.frequency.setValueAtTime(70,t);
+      o.frequency.linearRampToValueAtTime(48,t+dur);
+      var og=ctx.createGain();og.gain.setValueAtTime(.06,t);og.gain.exponentialRampToValueAtTime(.001,t+dur);
+      o.connect(og);og.connect(this.master);o.start(t);o.stop(t+dur);
+    }
   },
   thump:function(vol){
-    if(!this.ctx || !this.on || this.muted) return;
-    var ctx=this.ctx, t=ctx.currentTime;
-    var o=ctx.createOscillator(); o.type='sine';
-    o.frequency.setValueAtTime(56,t); o.frequency.exponentialRampToValueAtTime(30,t+.16);
-    var g=ctx.createGain();
-    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(vol,t+.012);
+    if(!this.ctx||!this.on||this.muted)return;
+    var ctx=this.ctx,t=ctx.currentTime;
+    var o=ctx.createOscillator();o.type='sine';
+    o.frequency.setValueAtTime(56,t);o.frequency.exponentialRampToValueAtTime(30,t+.16);
+    var g=ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.012);
     g.gain.exponentialRampToValueAtTime(.001,t+.22);
-    o.connect(g); g.connect(this.master); o.start(t); o.stop(t+.25);
+    o.connect(g);g.connect(this.master);o.start(t);o.stop(t+.25);
   },
   heartbeat:function(now,p){
-    if(!this.on || this.muted || p<.75) return;
-    if(now>=this.nextBeat){
-      var v=.14+p*.18;
-      this.thump(v);
-      var self=this; setTimeout(function(){ self.thump(v*.62); },175);
-      this.nextBeat = now + (1.3 - p*.72)*1000;
-    }
-  },
-  tick:function(now,p){
-    // turn signal
-    if(!this.ctx || !this.on || this.muted || p<.55) return;
-    if(now>=this.nextTick){
-      var ctx=this.ctx, t=ctx.currentTime;
-      var o=ctx.createOscillator(); o.type='sine'; o.frequency.value= this.tickHigh?1750:1400;
-      var g=ctx.createGain();
-      g.gain.setValueAtTime(this.tickHigh?.05:.032,t);
-      g.gain.exponentialRampToValueAtTime(.001,t+.045);
-      o.connect(g); g.connect(this.master); o.start(t); o.stop(t+.06);
-      this.tickHigh=!this.tickHigh;
-      this.nextTick=now+860;
-    }
-  },
-  chime:function(){
-    // PA ding-dong
-    if(!this.ctx || !this.on || this.muted) return;
-    var ctx=this.ctx, t=ctx.currentTime, master=this.master;
-    [[659.25,0,.24],[523.25,.26,.34]].forEach(function(n){
-      var o=ctx.createOscillator(); o.type='sine'; o.frequency.value=n[0];
-      var g=ctx.createGain();
-      g.gain.setValueAtTime(0,t+n[1]);
-      g.gain.linearRampToValueAtTime(.11,t+n[1]+.02);
-      g.gain.exponentialRampToValueAtTime(.001,t+n[1]+n[2]);
-      o.connect(g); g.connect(master); o.start(t+n[1]); o.stop(t+n[1]+n[2]+.05);
-    });
-  },
-  horn:function(){
-    if(!this.ctx || !this.on || this.muted) return;
-    var ctx=this.ctx, t=ctx.currentTime;
-    var lp=ctx.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=620;
-    var g=ctx.createGain();
-    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.05,t+.12);
-    g.gain.setValueAtTime(.05,t+.5); g.gain.exponentialRampToValueAtTime(.001,t+.95);
-    lp.connect(g); g.connect(this.master);
-    [196,247].forEach(function(f){
-      var o=ctx.createOscillator(); o.type='sawtooth'; o.frequency.value=f;
-      o.connect(lp); o.start(t); o.stop(t+1);
-    });
+    if(!this.on||this.muted||p<.75)return;
+    if(now>=this.nextBeat){var v=.14+p*.18;this.thump(v);
+      var s=this;setTimeout(function(){s.thump(v*.62)},175);
+      this.nextBeat=now+(1.3-p*.72)*1000}
   },
   scream:function(){
-    if(!this.ctx || !this.on) return;
-    var ctx=this.ctx, t=ctx.currentTime, master=this.master;
-    var g=ctx.createGain();
-    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.5,t+.015);
-    g.gain.setValueAtTime(.5,t+.3); g.gain.exponentialRampToValueAtTime(.001,t+.9);
-    g.connect(master);
-    var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=.8;
-    bp.frequency.setValueAtTime(2600,t); bp.frequency.exponentialRampToValueAtTime(300,t+.8);
-    bp.connect(g);
-    var ns=ctx.createBufferSource(); ns.buffer=this.noiseBuf; ns.loop=true;
-    var ng=ctx.createGain(); ng.gain.value=.7;
-    ns.connect(ng); ng.connect(bp); ns.start(t); ns.stop(t+1);
+    if(!this.ctx||!this.on)return;
+    var ctx=this.ctx,t=ctx.currentTime,master=this.master;
+    var g=ctx.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.5,t+.015);
+    g.gain.setValueAtTime(.5,t+.3);g.gain.exponentialRampToValueAtTime(.001,t+.9);g.connect(master);
+    var bp=ctx.createBiquadFilter();bp.type='bandpass';bp.Q.value=.8;
+    bp.frequency.setValueAtTime(2600,t);bp.frequency.exponentialRampToValueAtTime(300,t+.8);bp.connect(g);
+    var ns=ctx.createBufferSource();ns.buffer=this.noiseBuf;ns.loop=true;
+    var ng=ctx.createGain();ng.gain.value=.7;ns.connect(ng);ng.connect(bp);ns.start(t);ns.stop(t+1);
     [620,632,608].forEach(function(f){
-      var o=ctx.createOscillator(); o.type='sawtooth';
-      o.frequency.setValueAtTime(f,t); o.frequency.exponentialRampToValueAtTime(88,t+.7);
-      o.connect(bp); o.start(t); o.stop(t+.95);
+      var o=ctx.createOscillator();o.type='sawtooth';
+      o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(88,t+.7);
+      o.connect(bp);o.start(t);o.stop(t+.95);
     });
-    // air brake hiss
-    var hs=ctx.createBufferSource(); hs.buffer=this.noiseBuf; hs.loop=true;
-    var hp=ctx.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=2800;
-    var hg=ctx.createGain();
-    hg.gain.setValueAtTime(.3,t+.05); hg.gain.exponentialRampToValueAtTime(.001,t+.95);
-    hs.connect(hp); hp.connect(hg); hg.connect(master); hs.start(t); hs.stop(t+1);
-    var sub=ctx.createOscillator(); sub.type='sine';
-    sub.frequency.setValueAtTime(48,t); sub.frequency.exponentialRampToValueAtTime(25,t+.8);
-    var sg=ctx.createGain();
-    sg.gain.setValueAtTime(0,t); sg.gain.linearRampToValueAtTime(.38,t+.02);
+    var hs=ctx.createBufferSource();hs.buffer=this.noiseBuf;hs.loop=true;
+    var hp=ctx.createBiquadFilter();hp.type='highpass';hp.frequency.value=2800;
+    var hg=ctx.createGain();hg.gain.setValueAtTime(.3,t+.05);hg.gain.exponentialRampToValueAtTime(.001,t+.95);
+    hs.connect(hp);hp.connect(hg);hg.connect(master);hs.start(t);hs.stop(t+1);
+    var sub=ctx.createOscillator();sub.type='sine';
+    sub.frequency.setValueAtTime(48,t);sub.frequency.exponentialRampToValueAtTime(25,t+.8);
+    var sg=ctx.createGain();sg.gain.setValueAtTime(0,t);sg.gain.linearRampToValueAtTime(.38,t+.02);
     sg.gain.exponentialRampToValueAtTime(.001,t+.9);
-    sub.connect(sg); sg.connect(master); sub.start(t); sub.stop(t+1);
+    sub.connect(sg);sg.connect(master);sub.start(t);sub.stop(t+1);
   }
 };
-function updateSoundBtn(){
-  $('#soundBtn').textContent = sound.on ? '🔊 音效开' : '🔇 音效关';
-}
-$('#soundBtn').addEventListener('click',function(){
-  sound.userSet=true;
-  if(sound.on){ sound.disable(); } else { sound.enable(); }
-});
-function firstGesture(){
-  if(!sound.userSet && !sound.on) sound.enable();
-}
+function updateSoundBtn(){$('#soundBtn').textContent=sound.on?'🔊':'🔇'}
+$('#soundBtn').addEventListener('click',function(){sound.userSet=true;if(sound.on)sound.disable();else sound.enable()});
+function firstGesture(){if(!sound.userSet&&!sound.on)sound.enable()}
 window.addEventListener('pointerdown',firstGesture);
 window.addEventListener('keydown',firstGesture);
 document.addEventListener('visibilitychange',function(){
-  if(!sound.ctx) return;
-  if(document.hidden){ sound.ctx.suspend(); }
-  else if(sound.on){ sound.ctx.resume(); }
+  if(!sound.ctx)return;
+  if(document.hidden)sound.ctx.suspend();else if(sound.on)sound.ctx.resume();
 });
 
-/* ================= toasts ================= */
-function toast(title,body){
-  var box=$('#toasts');
-  while(box.children.length>=3) box.removeChild(box.firstChild);
-  var el=document.createElement('div'); el.className='toast';
-  var t=document.createElement('div'); t.className='t-title'; t.textContent=title;
-  var b=document.createElement('div'); b.textContent=body;
-  el.appendChild(t); el.appendChild(b); box.appendChild(el);
-  setTimeout(function(){ el.style.transition='opacity .6s'; el.style.opacity='0';
-    setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); },650);
-  },6200);
-}
-var toastEvents=[
-  {p:.45,done:false,t:'报名提醒',b:'您已自动报名成功。集合时间：今晚 00:00。'},
-  {p:.60,done:false,t:'行程变更',b:'第 3 天「返程」已取消。无需确认。'},
-  {p:.72,done:false,t:'车辆警告',b:'安全带指示灯异常：全车 46 人，0 人系带。'},
-  {p:.86,done:false,t:'导游小安',b:'我看到你了。最后一排，靠窗。'}
+/* ================= chat data ================= */
+var NAMES={an:'导游小安',wang:'王姐',zhang:'老张',may:'阿May',liu:'小刘',zhou:'司机老周',it:'它',me:'你'};
+var AVAS={an:'#av-an',wang:'#av-wang',zhang:'#av-zhang',may:'#av-may',liu:'#av-liu',zhou:'#av-zhou',it:'#av-paper',me:'#av-me'};
+var MSGS=[
+ {k:'time',t:'星期一 19:02'},
+ {k:'sys',t:'导游小安 创建了群聊「云栖山三日团·友群」'},
+ {k:'text',w:'an',t:'各位团友晚上好！我是本次云栖山三日团的导游小安 🚩 行程单发给大家，有问题随时群里问我～'},
+ {k:'card',w:'an',title:'云栖山·雾隐村 3日2晚 ¥99',rows:[['D1','07:00 集合出发 · 云栖山 · 入住酒店'],['D2','日出 · 雾隐村 · 篝火晚会'],['D3','返程 · 预计 18:00 到家']],foot:'安途旅行社 · 纯玩无购物'},
+ {k:'text',w:'an',t:'麻烦大家把群昵称改成「名字+人数」，方便数人哈 😊'},
+ {k:'text',w:'wang',t:'收到！我们两大一小 👨‍👩‍👧'},
+ {k:'text',w:'zhang',t:'我一人。摄影器材比较多，能上车吧？'},
+ {k:'text',w:'an',t:'可以的张哥，行李舱够大。'},
+ {k:'text',w:'may',t:'有人拼房吗～我一人，好说话'},
+ {k:'text',w:'liu',t:'学生证还有优惠吗哈哈（已经99了还要什么优惠）'},
+ {k:'text',w:'wang',t:'哈哈哈小刘真幽默'},
+ {k:'rp',w:'an',title:'出发大吉'},
+ {k:'sys',t:'王姐、老张、阿May、小刘 领取了红包'},
+ {k:'text',w:'liu',t:'谢谢导游！0.88 也是爱'},
+ {k:'text',w:'zhang',t:'说真的，99 三天两晚还包吃住，你们不觉得便宜得离谱吗？'},
+ {k:'text',w:'an',t:'政府补贴的惠民团，名额有限，大家放心玩 😊'},
+ {k:'text',w:'may',t:'管它呢，便宜就行，冲！'},
+ {k:'loc',w:'an',title:'集合点·市体育馆东门',addr:'体育馆东门 · 车牌尾号 7438'},
+ {k:'text',w:'an',t:'明早 7:00 集合，7:15 准时发车，迟到不等哦。车牌尾号 7438，认准我的小红旗 🚩'},
+ {k:'text',w:'wang',t:'收到收到'},
+ {k:'time',t:'星期二 06:41'},
+ {k:'text',w:'wang',t:'我们到了，东门这里好多人'},
+ {k:'text',w:'liu',t:'看到小红旗了！上车了上车了'},
+ {k:'photo',w:'an',ph:'mountain',cap:'出发咯 · 云栖山路上'},
+ {k:'text',w:'may',t:'哇 好美'},
+ {k:'text',w:'zhang',t:'这雾…有点大啊'},
+ {k:'text',w:'an',t:'山里就这样，习惯就好～大家系好安全带'},
+ {k:'time',t:'星期二 14:20'},
+ {k:'text',w:'liu',t:'怎么还在开？导航说早就该到了'},
+ {k:'text',w:'an',t:'快到了快到了，雾大，开慢一点。'},
+ {k:'text',w:'wang',t:'我家孩子说，窗外有人跟着车跑。'},
+ {k:'text',w:'an',t:'小孩子看错了。把窗帘拉上。'},
+ {k:'text',w:'wang',t:'哦。好。'},
+ {k:'voice',w:'zhou',dur:'8″',tr:'雾太大了。这条路我开了三十年。今天，它不认识我。'},
+ {k:'text',w:'may',t:'司机师傅语音里…怎么有别人的声音？'},
+ {k:'text',w:'an',t:'没有别人。车上只有你们。'},
+ {k:'time',t:'星期二 23:58'},
+ {k:'text',w:'zhang',t:'我拍了几张服务区的照片。你们看看。最后一张是不是有点不对。'},
+ {k:'photo',w:'zhang',ph:'service',cap:'服务区 · 随手拍'},
+ {k:'text',w:'may',t:'最后一张…窗户里那些白的是什么？'},
+ {k:'text',w:'zhang',t:'什么白的？我拍的时候没有人。'},
+ {k:'text',w:'an',t:'张哥，别拍了。睡觉。',pend:1},
+ {k:'sys',t:'「老张」退出了群聊',pend:1,notify:1,id:'sysZhangLeft'},
+ {k:'text',w:'may',t:'老张怎么退群了？他人还在车上啊，就坐我前面',pend:1},
+ {k:'text',w:'an',t:'他下车了。',pend:1},
+ {k:'text',w:'may',t:'刚才没停车啊？？',pend:1},
+ {k:'text',w:'an',t:'他下车了。',pend:1},
+ {k:'text',w:'liu',t:'我手机一格信号都没有。为什么还能发消息？',pend:1},
+ {k:'text',w:'an',t:'群里不需要信号。',pend:1},
+ {k:'voice',w:'zhang',dur:'12″',tr:'我下车了。车没停。我跟着车跑。好冷。别让它数到我。',pend:1,creepy:1},
+ {k:'time',t:'星期三 25:61',pend:1},
+ {k:'chain',w:'an',title:'下车接龙',pend:1},
+ {k:'text',w:'wang',t:'导游，我孩子一直盯着最后一排看。那里不是空的吗？',pend:1},
+ {k:'text',w:'an',t:'是空的。别让孩子看。',pend:1},
+ {k:'recall',w:'an',hidden:'别下车别下车别下车别下车别下车',pend:1},
+ {k:'sys',t:'导游小安 修改了群名「云栖山三日团·友群」→「永居团·第46期」',pend:1,notify:1},
+ {k:'text',w:'liu',t:'我不玩了。我要下车。我现在就要下车。',pend:1},
+ {k:'text',w:'an',t:'车门只在站点开。',pend:1},
+ {k:'text',w:'liu',t:'那下一站是哪？？',pend:1},
+ {k:'text',w:'an',t:'你家楼下。',pend:1},
+ {k:'sys',t:'「你」邀请了「它」加入群聊',pend:1,notify:1,id:'sysItJoined'},
+ {k:'text',w:'it',t:'旗在，人在。',pend:1,notify:1},
+ {k:'text',w:'it',t:'数好了。46。一个都不少。',pend:1},
+ {k:'rp',w:'it',title:'买路钱',evil:1,pend:1},
+ {k:'text',w:'it',t:'最后一排靠窗。给你留的。',pend:1},
+ {k:'self',t:'我到了。',pend:1,notify:1},
+ {k:'self',t:'我在家。我一直在家。',pend:1},
+ {k:'self',t:'那车上的是谁？',pend:1,notify:1},
+ {k:'loc',w:'it',title:'你的位置（实时）',addr:'它正在查看 · 距离不断缩短',evil:1,pend:1},
+ {k:'sys',t:'导游小安 开启了全员禁言',pend:1,notify:1,id:'sysMute'}
 ];
 
-/* ================= whispers / glitches ================= */
-var WHISPERS=['别下车','跟紧小红旗','它在数人','最后一排有空位','你坐过站了','司机没有脸','报站声是给你听的','窗外不是雾'];
-function spawnWhisper(){
-  var el=document.createElement('span'); el.className='whisper';
-  el.textContent=pick(WHISPERS);
-  el.style.left=rand(6,72)+'%'; el.style.top=rand(10,84)+'%';
-  el.style.fontSize=rand(14,27)+'px';
-  $('#whispers').appendChild(el);
-  setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); },4000);
+/* ================= render ================= */
+var log=$('#log');
+function avaSvg(who){return '<svg viewBox="0 0 80 80"><use href="'+AVAS[who]+'"/></svg>'}
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!==undefined)e.innerHTML=html;return e}
+function renderMsg(m){
+  var node;
+  if(m.k==='time'){node=el('div','time-div');node.textContent=m.t}
+  else if(m.k==='sys'){node=el('div','sys');node.textContent=m.t;if(m.id)node.id=m.id}
+  else if(m.k==='recall'){
+    node=el('div','sys');
+    node.innerHTML='「导游小安」撤回了一条消息 <span class="peek">查看</span>';
+    node.querySelector('.peek').addEventListener('click',function(){
+      this.style.display='none';
+      var r=el('span','peeked');r.textContent=m.hidden;node.appendChild(r);
+      glitchBurst();sound.murmur(true);
+    });
+  }else{
+    var who=m.k==='self'?'me':m.w;
+    var isSelf=(who==='me');
+    node=el('div','msg-row'+(isSelf?' self':''));
+    node.dataset.who=who;
+    var ava=el('div','ava');ava.dataset.ava=who;ava.innerHTML=avaSvg(who);
+    var col=el('div','col');
+    if(!isSelf){
+      var s=el('div','sender');s.textContent=NAMES[who];
+      if(who==='an'){var tag=el('span','tag');tag.textContent='导游';s.appendChild(tag)}
+      col.appendChild(s);
+    }
+    var b;
+    if(m.k==='text'||m.k==='self'){
+      b=el('div','bubble');var bt=el('span','btext');bt.textContent=m.t;bt.setAttribute('data-corrupt','');b.appendChild(bt);
+    }else if(m.k==='voice'){
+      b=el('div','bubble voice');
+      b.innerHTML='<span class="play">▶</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="dur">'+m.dur+'</span>';
+      b.addEventListener('click',function(){
+        if(b.classList.contains('playing'))return;
+        b.classList.add('playing');b.querySelector('.play').textContent='⏸';
+        sound.murmur(!!m.creepy||sp>.6);
+        setTimeout(function(){b.classList.remove('playing');b.querySelector('.play').textContent='▶'},2600);
+      });
+      col.appendChild(b);
+      var tr=el('div','trans');tr.textContent='转文字';
+      var td=el('div','transcript');td.textContent=m.tr;
+      tr.addEventListener('click',function(){td.classList.add('show');tr.style.display='none';if(m.creepy)glitchBurst()});
+      col.appendChild(tr);col.appendChild(td);
+      node.appendChild(ava);node.appendChild(col);
+      if(m.pend)node.classList.add('pending');
+      return node;
+    }else if(m.k==='rp'){
+      b=el('div','bubble rp'+(m.evil?' evil':''));
+      b.innerHTML='<span class="ric">🧧</span><span><span class="rt">'+m.title+'</span><span class="rs">微信红包</span></span>';
+      b.addEventListener('click',function(){openRp(m)});
+    }else if(m.k==='photo'){
+      b=el('div','bubble photo');
+      b.innerHTML='<svg viewBox="0 0 320 200"><use href="#ph-'+m.ph+'"/></svg>';
+      b.addEventListener('click',function(){openPhoto(m)});
+      col.appendChild(b);
+      var cap=el('div','photo-cap');cap.textContent=m.cap;col.appendChild(cap);
+      node.appendChild(ava);node.appendChild(col);
+      if(m.pend)node.classList.add('pending');
+      return node;
+    }else if(m.k==='loc'){
+      b=el('div','bubble loc');
+      b.innerHTML='<div class="lt">'+m.title+'</div><div class="la">'+m.addr+'</div><svg viewBox="0 0 300 120"><use href="#map-mini"/></svg>';
+      b.addEventListener('click',function(){openLoc(m)});
+    }else if(m.k==='card'){
+      b=el('div','bubble card');
+      var rows=m.rows.map(function(r){return '<div class="cr"><b>'+r[0]+'</b><span>'+r[1]+'</span></div>'}).join('');
+      b.innerHTML='<div class="ct">'+m.title+'</div>'+rows+'<div class="cf">'+m.foot+'</div>';
+    }else if(m.k==='chain'){
+      b=el('div','bubble chain');
+      b.innerHTML='<div class="cht">'+m.title+'</div>'+
+        '<div class="chain-item">1. 王姐</div><div class="chain-item">2. 阿May</div>'+
+        '<div class="chain-item">3. 小刘</div><div class="chain-item" id="chainZhang">4. 老张</div>'+
+        '<div class="chain-item">45. ▓▓▓</div><div class="chain-item" id="chainYou">46. （空位）</div>'+
+        '<div class="chain-foot">接龙人数会自己变。别数。数了就要补齐。</div>';
+    }
+    col.appendChild(b);
+    node.appendChild(ava);node.appendChild(col);
+  }
+  if(m.pend)node.classList.add('pending');
+  node._notify=m.notify;
+  return node;
 }
-var glitchSections=['#hero','#features','#itinerary','#reviews','#stats','#team','#faq','#cta','#footer'];
+MSGS.forEach(function(m){log.appendChild(renderMsg(m))});
+var pendingNodes=$$('.pending');
+
+function scrollBottom(smooth){window.scrollTo({top:root.scrollHeight,behavior:smooth?'smooth':'auto'})}
+function appendMsg(m){var n=renderMsg(m);n.classList.add('in');log.appendChild(n);return n}
+
+/* ================= input ================= */
+var input=$('#chatInput'),sendBtn=$('#sendBtn');
+input.addEventListener('input',function(){sendBtn.classList.toggle('show',input.value.trim().length>0)});
+input.addEventListener('keydown',function(e){if(e.key==='Enter')sendChat()});
+sendBtn.addEventListener('click',sendChat);
+var replyIdx=0;
+var REPLIES={
+  early:['收到哈～有问题随时群里问 😊','好的，已记录。明天见！','收到收到，早点休息～'],
+  mid:['收到。您发言的时候，车上安静了一下。','好的。不过您不是在车上吗？怎么还在发消息？','收到。别刷屏。它在听。'],
+  late:['收到。你的名字，我记下了。','别打字了。抬头。','收到。最后一排靠窗，信号最好。']
+};
+function sendChat(){
+  if(locked)return;
+  var v=input.value.trim();if(!v)return;
+  input.value='';sendBtn.classList.remove('show');
+  appendMsg({k:'self',t:v});
+  sound.send();scrollBottom(true);
+  var pool=sp>.75?REPLIES.late:(sp>.4?REPLIES.mid:REPLIES.early);
+  var who=sp>.75?'it':'an';
+  var reply=pool[replyIdx++%pool.length];
+  setTimeout(function(){
+    var t=appendMsg({k:'text',w:who,t:'对方正在输入…'});
+    var bb=t.querySelector('.bubble');bb.innerHTML='';bb.className='bubble typing-bubble';bb.innerHTML='<i></i><i></i><i></i>';
+    scrollBottom(true);
+    setTimeout(function(){
+      t.querySelector('.col').removeChild(bb);
+      var nb=el('div','bubble');var bt=el('span','btext');bt.textContent=reply;bt.setAttribute('data-corrupt','');nb.appendChild(bt);
+      t.querySelector('.col').appendChild(nb);
+      sound.notify();scrollBottom(true);
+    },1200);
+  },500);
+}
+$('#plusBtn').addEventListener('click',function(){$('#plusPanel').classList.toggle('open')});
+$('#emojiBtn').addEventListener('click',function(){
+  if(sp>.6){toast('表情','表情面板已被它禁用。它不喜欢你笑。')}
+  else{input.value+='😊';sendBtn.classList.add('show');input.focus()}
+});
+$('#voiceModeBtn').addEventListener('click',function(){
+  if(sp>.6)toast('语音','按住说话已禁用。它不想听你的声音。它想听你的呼吸。');
+  else toast('语音','按住 说话。本次行程不支持语音。');
+});
+$('#plusPhoto').addEventListener('click',function(){
+  if(locked)return;
+  $('#plusPanel').classList.remove('open');
+  appendMsg({k:'photo',w:'me',ph:'service',cap:'我拍的'});
+  sound.send();scrollBottom(true);
+  setTimeout(function(){
+    appendMsg({k:'text',w:sp>.6?'it':'an',t:sp>.6?'收到。你拍的照片里，最后一排有人。放大看。':'拍得不错～不过服务区最好别拍。'});
+    sound.notify();scrollBottom(true);
+  },1400);
+});
+$('#plusLoc').addEventListener('click',function(){
+  if(locked)return;
+  $('#plusPanel').classList.remove('open');
+  appendMsg({k:'loc',w:'me',title:'我的位置',addr:'已发送 · 实时共享中'});
+  sound.send();scrollBottom(true);
+  setTimeout(function(){
+    appendMsg({k:'text',w:sp>.6?'it':'an',t:sp>.6?'收到了。很近。':'收到，明天见～'});
+    sound.notify();scrollBottom(true);
+  },1400);
+});
+$('#plusRp').addEventListener('click',function(){
+  toast('红包',sp>.6?'它不允许你发红包。你已经是红包了。':'导游说：群里不发红包，专心行程～');
+});
+$('#backBtn').addEventListener('click',function(){
+  toast('返回',sp>.6?'没有上一页。你已经在群里了。':'返回？行程还没开始呢。');
+});
+
+/* ================= modals ================= */
+var modal=$('#modal'),modalCard=$('#modalCard'),locTimer=null;
+function closeModal(){modal.classList.remove('open');modalCard.innerHTML='';if(locTimer){clearInterval(locTimer);locTimer=null}}
+modal.addEventListener('click',function(e){if(e.target===modal)closeModal()});
+function openPhoto(m){
+  modalCard.innerHTML='<button class="mclose">✕</button><div class="m-photo"><svg viewBox="0 0 320 200"><use href="#ph-'+m.ph+'"/></svg></div><div class="m-cap">'+m.cap+(m.ph==='service'?' · 老张：我拍的时候没有人。':'')+'</div>';
+  modalCard.querySelector('.mclose').addEventListener('click',closeModal);
+  modal.classList.add('open');
+  var ph=modalCard.querySelector('.m-photo');
+  if(sp>.4){setTimeout(function(){ph.classList.add('reveal');sound.murmur(true)},900)}
+}
+function openRp(m){
+  var evil=m.evil;
+  modalCard.innerHTML='<button class="mclose">✕</button><div class="m-rp'+(evil?' evil':'')+'">'+
+    '<div class="from">'+(evil?'它':'导游小安')+' 的红包</div>'+
+    '<div class="greet">'+m.title+'</div>'+
+    '<div class="open-coin">開</div>'+
+    '<div class="result">'+(evil?'已收取：<b>你的名字</b><br>剩余名额：46。一个都不少。':'<b>¥0.88</b><br>已存入零钱。出发大吉。')+'</div></div>';
+  modalCard.querySelector('.mclose').addEventListener('click',closeModal);
+  modal.classList.add('open');
+  var coin=modalCard.querySelector('.open-coin');
+  coin.addEventListener('click',function(){
+    coin.classList.add('spin');sound.coin();
+    setTimeout(function(){
+      modalCard.querySelector('.result').classList.add('show');
+      if(evil){glitchBurst();sound.murmur(true);if(!RM)shakeUntil=performance.now()+200}
+    },520);
+  });
+}
+function openLoc(m){
+  var evil=m.evil||sp>.7;
+  modalCard.innerHTML='<button class="mclose">✕</button><div class="m-loc">'+
+    '<div class="lt">'+m.title+'</div><div class="la">'+m.addr+'</div>'+
+    '<svg viewBox="0 0 300 200"><rect width="300" height="200" fill="#eaf0ea"/>'+
+    '<path d="M0,60 L300,60 M0,140 L300,140 M70,0 L70,200 M150,0 L150,200 M230,0 L230,200" stroke="#fff" stroke-width="8"/>'+
+    '<path d="M0,60 L300,60 M150,0 L150,200" stroke="#f7e9c8" stroke-width="10"/>'+
+    '<circle id="meDot" cx="150" cy="100" r="10" fill="#3f8cff" opacity=".25"/>'+
+    '<circle cx="150" cy="100" r="5" fill="#3f8cff" stroke="#fff" stroke-width="1.5"/>'+
+    '<text x="160" y="96" font-size="11" fill="#3f8cff">你</text>'+
+    (evil?'<circle id="itDot" cx="280" cy="170" r="6" fill="#c0392b"/><text id="itLabel" x="252" y="188" font-size="11" fill="#c0392b">它</text>':'')+
+    '</svg><div class="dist" id="locDist">'+(evil?'距你 3.2 km · 正在接近':'集合点 · 明早 7:00')+'</div></div>';
+  modalCard.querySelector('.mclose').addEventListener('click',closeModal);
+  modal.classList.add('open');
+  if(evil){
+    var d=3.2,ix=280,iy=170;
+    locTimer=setInterval(function(){
+      if(!modal.classList.contains('open')){clearInterval(locTimer);locTimer=null;return}
+      d=Math.max(0,d-rand(.08,.2));
+      ix+=(150-ix)*.06;iy+=(100-iy)*.06;
+      var dot=modalCard.querySelector('#itDot');
+      if(dot){dot.setAttribute('cx',ix);dot.setAttribute('cy',iy)}
+      var dist=modalCard.querySelector('#locDist');
+      if(d>0){dist.textContent='距你 '+d.toFixed(1)+' km · 正在接近'}
+      else{dist.textContent='距你 0 m · 在你身后';glitchBurst();clearInterval(locTimer);locTimer=null}
+    },420);
+  }
+}
+var PREVIEWS={
+  family:{n:'相亲相爱一家人',ms:[['妈','这么晚还不睡？'],['妈','你房间灯怎么一闪一闪的？'],['妈','你背后是什么？']],note:'以上消息来自你的手机。本页面无法解释它们。'},
+  an:{n:'导游小安',ms:[['小安','明天见～记得带身份证。'],['小安','别上车。'],['小安','你已经在车上了。']],note:'私聊记录不存在于任何服务器。'},
+  file:{n:'文件传输助手',ms:[['它','文件已收到：你.jpg'],['它','文件大小：一生。'],['它','正在下载…']],note:'传输进度 99%。剩余时间：未知。'},
+  it:{n:'它',ms:[['它','旗在，人在。'],['它','数好了。46。'],['它','最后一排靠窗。给你留的。']],note:'该联系人不存在于你的通讯录。'}
+};
+$$('.side-chat[data-preview]').forEach(function(c){
+  c.addEventListener('click',function(){
+    var p=PREVIEWS[c.dataset.preview];
+    var html='<button class="mclose">✕</button><div class="m-preview"><h4>'+p.n+'</h4>';
+    p.ms.forEach(function(m){
+      var pAva={family:'wang',an:'an',file:'me',it:'it'}[c.dataset.preview]||'an';
+      html+='<div class="pm"><div class="pa">'+avaSvg(pAva)+'</div><div class="pb">'+m[1]+'</div></div>';
+    });
+    html+='<div class="pnote">'+p.note+'</div></div>';
+    modalCard.innerHTML=html;
+    modalCard.querySelector('.mclose').addEventListener('click',closeModal);
+    modal.classList.add('open');
+    if(sp>.6)sound.murmur(true);
+  });
+});
+
+/* ================= drawer ================= */
+var drawer=$('#drawer'),drawerBg=$('#drawerBg');
+function renderDrawer(){
+  var members=[['an','小安','在线'],['wang','王姐','在车上'],['zhang','老张',sp>.38?'已退群':'在车上'],['may','阿May','在车上'],['liu','小刘','在车上'],['zhou','老周','驾驶中'],['me','你','在线']];
+  if(sp>.76)members.push(['it','它','最后一排']);
+  var html='<h3>群聊信息 <button id="drawerClose">✕</button></h3>';
+  html+='<div class="d-sec">群成员 · <span id="dCount">'+(sp>.76?'46':'45')+'</span></div><div class="d-members">';
+  members.forEach(function(m){
+    var left=m[2]==='已退群';
+    var bad=m[2]==='最后一排';
+    html+='<div class="d-m'+(left?' left':'')+'"><div class="ava" data-ava="'+m[0]+'">'+avaSvg(m[0])+'</div>'+m[1]+'<div class="st'+(left?' off':(bad?' bad':''))+'">'+m[2]+'</div></div>';
+  });
+  html+='</div><div class="d-sec">…等 '+((sp>.76)?46:45)+' 人。都在。</div>';
+  html+='<div class="d-sec">群公告</div><div class="d-notice">'+$('#noticeText').textContent+'</div>';
+  html+='<div class="d-sec">群聊名称</div><div class="d-row"><span>'+$('#grpName').textContent+'</span><span class="v">第46期</span></div>';
+  html+='<div class="d-row"><span>全员禁言</span><span class="v">'+(locked?'已开启':'未开启')+'</span></div>';
+  html+='<button id="quitBtn">退出群聊</button>';
+  drawer.innerHTML=html;
+  $('#drawerClose').addEventListener('click',closeDrawer);
+  $('#quitBtn').addEventListener('click',function(){
+    toast('退群',sp>.5?'退群需导游同意。导游不同意。路也不同意。':'退群需导游同意。导游说：明天见～');
+    if(sp>.5)glitchBurst();
+  });
+}
+function openDrawer(){renderDrawer();drawer.classList.add('open');drawerBg.classList.add('open')}
+function closeDrawer(){drawer.classList.remove('open');drawerBg.classList.remove('open')}
+$('#menuBtn').addEventListener('click',openDrawer);
+drawerBg.addEventListener('click',closeDrawer);
+$('#notice').addEventListener('click',openDrawer);
+
+/* ================= toasts / whispers / glitches ================= */
+function toast(title,body){
+  var box=$('#toasts');
+  while(box.children.length>=3)box.removeChild(box.firstChild);
+  var t=el('div','toast');t.innerHTML='<div class="t-title">'+title+'</div><div>'+body+'</div>';
+  box.appendChild(t);
+  setTimeout(function(){t.style.transition='opacity .6s';t.style.opacity='0';setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t)},650)},5600);
+}
+var WHISPERS=['别回头','它在数人','最后一排','你已经在车上了','旗在人在','别答应','群里不需要信号','别让它数到你'];
+function spawnWhisper(){
+  var w=el('span','whisper');w.textContent=pick(WHISPERS);
+  w.style.left=rand(6,72)+'%';w.style.top=rand(12,84)+'%';w.style.fontSize=rand(14,26)+'px';
+  $('#whispers').appendChild(w);
+  setTimeout(function(){if(w.parentNode)w.parentNode.removeChild(w)},4000);
+}
 function glitchBurst(){
-  var sec=$(pick(glitchSections));
-  if(!sec) return;
-  sec.classList.remove('glitch'); void sec.offsetWidth; sec.classList.add('glitch');
-  root.style.setProperty('--rgb', rand(2,4.5).toFixed(1)+'px');
-  setTimeout(function(){ sec.classList.remove('glitch'); root.style.setProperty('--rgb','0px'); },rand(170,320));
-  if(sp>.7 && !RM) shakeUntil=performance.now()+130;
+  var rows=$$('.msg-row');if(!rows.length)return;
+  var r=pick(rows);
+  r.classList.remove('glitch');void r.offsetWidth;r.classList.add('glitch');
+  root.style.setProperty('--rgb',rand(2,4).toFixed(1)+'px');
+  setTimeout(function(){r.classList.remove('glitch');root.style.setProperty('--rgb','0px')},rand(170,320));
+  if(sp>.7&&!RM)shakeUntil=performance.now()+130;
 }
 function pageBlink(){
-  if(RM) return;
-  $('#blinkTop').classList.add('closed'); $('#blinkBot').classList.add('closed');
-  setTimeout(function(){ $('#blinkTop').classList.remove('closed'); $('#blinkBot').classList.remove('closed'); },210);
+  if(RM)return;
+  $('#blinkTop').classList.add('closed');$('#blinkBot').classList.add('closed');
+  setTimeout(function(){$('#blinkTop').classList.remove('closed');$('#blinkBot').classList.remove('closed')},210);
 }
 function subliminal(){
-  if(RM) return;
-  var el=$('#subliminal'); el.style.display='grid'; el.style.opacity='.16';
-  setTimeout(function(){ el.style.display='none'; },75);
+  if(RM)return;
+  var s=$('#subliminal');s.style.display='grid';s.style.opacity='.15';
+  setTimeout(function(){s.style.display='none'},75);
 }
 
 /* ================= text corruption ================= */
@@ -1042,454 +1043,243 @@ var MARKS='̖̗̘̙̜̝̞̟̠̤̥̦̩̪̫̬̭̮̯̰̱̲̳̹̺̻̼͇͈͉͍͎̀́�
 var POOL='别下车它在数人跟我走最后一排';
 function zalgo(s,intensity){
   var out='';
-  for(var i=0;i<s.length;i++){
-    out+=s[i];
-    if(Math.random()<intensity){
-      out+=MARKS[Math.floor(Math.random()*MARKS.length)];
-      if(Math.random()<intensity*.5) out+=POOL[Math.floor(Math.random()*POOL.length)];
-    }
-  }
+  for(var i=0;i<s.length;i++){out+=s[i];
+    if(Math.random()<intensity){out+=MARKS[Math.floor(Math.random()*MARKS.length)];
+      if(Math.random()<intensity*.5)out+=POOL[Math.floor(Math.random()*POOL.length)]}}
   return out;
 }
 function corruptTick(){
-  if(sp<.45) return;
-  var els=$$('[data-corrupt]').filter(function(el){
-    if(el._busy) return false;
-    var r=el.getBoundingClientRect();
-    return r.bottom>0 && r.top<innerHeight && r.width>0;
+  if(sp<.45)return;
+  var els=$$('[data-corrupt]').filter(function(e){
+    if(e._busy)return false;
+    var r=e.getBoundingClientRect();
+    return r.bottom>0&&r.top<innerHeight&&r.width>0;
   });
-  if(!els.length) return;
-  var n = sp>.75 ? 2 : 1;
+  if(!els.length)return;
+  var n=sp>.75?2:1;
   for(var k=0;k<n;k++){
-    var el=pick(els);
-    if(el._busy) continue;
-    if(!el.dataset.orig){ el.dataset.orig=el.textContent; el.dataset.origHtml=el.innerHTML; }
-    el._busy=true;
-    el.textContent=zalgo(el.dataset.orig, .1+sp*.2);
-    (function(e){
-      setTimeout(function(){ e.innerHTML=e.dataset.origHtml; e._busy=false; }, rand(350,1100));
-    })(el);
+    var e=pick(els);if(e._busy)continue;
+    if(!e.dataset.orig)e.dataset.orig=e.textContent;
+    e._busy=true;
+    e.textContent=zalgo(e.dataset.orig,.1+sp*.2);
+    (function(x){setTimeout(function(){x.textContent=x.dataset.orig;x._busy=false},rand(350,1100))})(e);
   }
 }
 setInterval(corruptTick,720);
+function flickerSwap(e,t){e.classList.add('flicker');setTimeout(function(){e.textContent=t},100);setTimeout(function(){e.classList.remove('flicker')},340)}
 
-function flickerSwap(el,txt){
-  el.classList.add('flicker');
-  setTimeout(function(){ el.textContent=txt; },100);
-  setTimeout(function(){ el.classList.remove('flicker'); },340);
-}
-
-/* ================= one-shot morphs ================= */
-var morphs={nav:false,trust:false,logo:false,alt:false,cta:false,ins:false,seat1:false,seat2:false,seat3:false,
-  led1:false,led2:false,led3:false,stats1:false,stats2:false,faq:false,favicon:false,chatLabel:false,chatAva:false};
+/* ================= morphs ================= */
+var morphs={count44:false,notice1:false,carrier1:false,anPaper:false,name:false,notice2:false,count46:false,sideIt:false,chainYou:false,mePaper:false,carrier2:false,notice3:false,favicon:false,sideAn:false,sideFile:false};
+function setAva(who,href){AVAS[who]=href;$$('[data-ava="'+who+'"] use').forEach(function(u){u.setAttribute('href',href)})}
 function runMorphs(p){
-  if(!morphs.nav && p>.5){ morphs.nav=true;
-    var names=['末班车','没有返程','它们说的','它'];
-    $$('[data-nav]').forEach(function(a,i){ flickerSwap(a,names[i]); });
-    flickerSwap($('#navCta'),'你已报名');
+  if(!morphs.count44&&p>.38){morphs.count44=true;
+    flickerSwap($('#grpCount'),'(44)');
+    $$('.msg-row[data-who="zhang"] .ava').forEach(function(a){a.classList.add('left')});
   }
-  if(!morphs.trust && p>.55){ morphs.trust=true;
-    var names=['你家楼下','你床底','火葬场','乱葬岗','望乡台'];
-    $$('[data-trust]').forEach(function(a,i){ flickerSwap(a,names[i]); });
+  if(!morphs.notice1&&p>.5){morphs.notice1=true;flickerSwap($('#noticeText'),'集合：今晚 00:00 · 你家楼下 · 车牌尾号 ▓▓▓▓')}
+  if(!morphs.carrier1&&p>.5){morphs.carrier1=true;flickerSwap($('#sbCarrier'),'中国移不动')}
+  if(!morphs.anPaper&&p>.62){morphs.anPaper=true;setAva('an','#av-paper')}
+  if(!morphs.name&&p>.66){morphs.name=true;flickerSwap($('#grpName'),'永居团·第46期');flickerSwap($('#sideGrpName'),'永居团·第46期')}
+  if(!morphs.notice2&&p>.66){morphs.notice2=true;flickerSwap($('#noticeText'),'没有返程。第 3 天是永久的。')}
+  if(!morphs.count46&&p>.76){morphs.count46=true;flickerSwap($('#grpCount'),'(46)')}
+  if(!morphs.sideIt&&p>.76){morphs.sideIt=true;$('#sideIt').classList.add('show')}
+  if(!morphs.chainYou&&p>.8){morphs.chainYou=true;
+    var cz=$('#chainZhang');if(cz)cz.classList.add('struck');
+    var cy=$('#chainYou');if(cy){cy.textContent='46. 你';cy.classList.add('you')}
   }
-  if(!morphs.logo && p>.7){ morphs.logo=true; flickerSwap($('#logoText'),'安途 · 单程'); flickerSwap($('#footLogo'),'安途 · 单程'); }
-  if(!morphs.alt && p>.62){ morphs.alt=true;
-    $$('[data-alt]').forEach(function(el){ flickerSwap(el,el.dataset.alt); });
-  }
-  if(!morphs.cta && p>.6){ morphs.cta=true; flickerSwap($('#buyBtn'),'你已经报过名了'); }
-  if(!morphs.ins && p>.5){ morphs.ins=true; flickerSwap($('#insChip'),'✗ 受益人：它'); }
-  if(!morphs.seat1 && p>.5){ morphs.seat1=true; flickerSwap($('#seatChip'),'✓ 已报名 45/45 · 满员'); }
-  if(!morphs.seat2 && p>.7){ morphs.seat2=true; flickerSwap($('#seatChip'),'✗ 已报名 46/45 · 超员'); }
-  if(!morphs.seat3 && p>.85){ morphs.seat3=true; flickerSwap($('#seatChip'),'✗ 46/45 · 第 46 位是你'); }
-  if(!morphs.led1 && p>.35){ morphs.led1=true; flickerSwap($('#ledSign'),'雾隐村'); }
-  if(!morphs.led2 && p>.6){ morphs.led2=true; flickerSwap($('#ledSign'),'▓▓▓▓▓▓'); }
-  if(!morphs.led3 && p>.8){ morphs.led3=true; flickerSwap($('#ledSign'),'你家楼下'); }
-  if(!morphs.stats1 && p>.5){ morphs.stats1=true;
-    flickerSwap($('#st1'),'12,800'); flickerSwap($('#sl1'),'累计出发（人）');
-    flickerSwap($('#sl2'),'必须好评');
-    flickerSwap($('#st3'),'0'); flickerSwap($('#sl3'),'累计归来（人）');
-    flickerSwap($('#st4'),'46'); flickerSwap($('#sl4'),'车上现在的人数');
-  }
-  if(!morphs.stats2 && p>.74){ morphs.stats2=true; flickerSwap($('#st1'),'+1'); }
-  if(!morphs.faq && p>.68){ morphs.faq=true;
-    $$('.faq-item').forEach(function(item,i){
-      setTimeout(function(){ item.classList.add('open'); }, i*1400);
-    });
-  }
-  if(!morphs.favicon && p>.5){ morphs.favicon=true;
-    $('#favicon').href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Cpath d='M20 8 L20 56 M20 8 L52 16 L20 26' stroke='%23c0392b' stroke-width='5' fill='%23c0392b'/%3E%3C/svg%3E";
-  }
-  if(!morphs.chatLabel && p>.75){ morphs.chatLabel=true;
-    $('#chatLabel').textContent='它想和你说话';
-    $('#chatName').textContent='它';
-    $('#chatStatus').textContent='在线 · 最后一排';
-    $('#chatBubble').classList.add('pulse');
-  }
-  if(!morphs.chatAva && p>.9){ morphs.chatAva=true;
-    $('#chatAvaGood').style.display='none'; $('#chatAvaBad').style.display='block';
+  if(!morphs.mePaper&&p>.86){morphs.mePaper=true;setAva('me','#av-paper')}
+  if(!morphs.carrier2&&p>.86){morphs.carrier2=true;flickerSwap($('#sbCarrier'),'它动')}
+  if(!morphs.notice3&&p>.9){morphs.notice3=true;flickerSwap($('#noticeText'),'没有集合。你已经在车上了。')}
+  if(!morphs.sideAn&&p>.6){morphs.sideAn=true;flickerSwap($('#sideAnPrev'),'你已经在车上了。')}
+  if(!morphs.sideFile&&p>.7){morphs.sideFile=true;flickerSwap($('#sideFilePrev'),'它：文件已收到：你.jpg')}
+  if(!morphs.favicon&&p>.5){morphs.favicon=true;
+    $('#favicon').href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cellipse cx='26' cy='28' rx='16' ry='13' fill='%23c0392b'/%3E%3Cellipse cx='42' cy='40' rx='13' ry='10' fill='%23c0392b' opacity='.85'/%3E%3Ccircle cx='21' cy='26' r='2.4' fill='%23000'/%3E%3Ccircle cx='31' cy='26' r='2.4' fill='%23000'/%3E%3C/svg%3E";
   }
   var title;
-  if(finaleDone) title='（深呼吸）';
-  else if(finaleStarted) title='到站了';
-  else if(p>.85) title='别下车';
-  else if(p>.65) title='安途旅游 — 大巴不会停';
-  else if(p>.4) title='安途旅游 — 每一次出发，都……';
-  else title='安途旅游 — 每一次出发，都平安归来';
-  if(document.title!==title) document.title=title;
+  if(finaleDone)title='（深呼吸）';
+  else if(finaleStarted)title='它正在输入…';
+  else if(p>.85)title='别回头';
+  else if(p>.66)title='永居团·第46期 (46)';
+  else if(p>.4)title='云栖山三日团·友群 — 怎么还没到';
+  else title='云栖山三日团·友群 (45)';
+  if(document.title!==title)document.title=title;
 }
 
-/* ================= chat ================= */
-var chatAuto=[
-  {p:.22,done:false,m:'您好，我是安途客服小安 🚌 云栖山 3 日团还有余位，请问几位出行？'},
-  {p:.52,done:false,m:'您在看行程表。第 3 天其实不用看的。看了的人，都改了行程。'},
-  {p:.72,done:false,m:'请系好安全带。虽然没什么用。大巴从来不刹。'},
-  {p:.9,done:false,m:'到站了。请带好随身物品。您就是随身物品。'}
-];
-var chatReplies=[
-  '您好，我在。它也在。最后一排。',
-  '这个问题，建议您上车后再问。不过您已经在车上了。',
-  '靠窗的位置很好。它喜欢靠窗的你。',
-  '退团申请已收到。处理结果：驳回。理由：路不同意。',
-  '收到。您打字的时候，大巴停了一下。它在看您。'
-];
-var replyIdx=0, unread=0;
-function chatMsg(text,who){
-  var box=$('#chatMsgs');
-  var el=document.createElement('div'); el.className='msg '+who; el.textContent=text;
-  box.appendChild(el); box.scrollTop=box.scrollHeight;
-  return el;
-}
-function agentSay(text){
-  if($('#chatPanel').classList.contains('open')){
-    var typing=chatMsg('对方正在输入…','agent typing');
-    setTimeout(function(){
-      typing.classList.remove('typing'); typing.textContent=text;
-      $('#chatMsgs').scrollTop=$('#chatMsgs').scrollHeight;
-    },1100);
-  }else{
-    unread++;
-    var badge=$('#chatBadge'); badge.style.display='inline-block'; badge.textContent=unread;
-    $('#chatBubble').classList.add('pulse');
-  }
-}
-$('#chatBubble').addEventListener('click',function(){
-  var panel=$('#chatPanel');
-  panel.classList.toggle('open');
-  if(panel.classList.contains('open')){
-    unread=0; $('#chatBadge').style.display='none';
-    $('#chatMsgs').scrollTop=$('#chatMsgs').scrollHeight;
-  }
-});
-$('#chatClose').addEventListener('click',function(){ $('#chatPanel').classList.remove('open'); });
-function sendChat(){
-  var inp=$('#chatInput'), v=inp.value.trim();
-  if(!v) return;
-  inp.value='';
-  chatMsg(v,'user');
-  var reply = sp>.85 ? '它说：别发消息了。抬头。' : chatReplies[replyIdx++ % chatReplies.length];
-  setTimeout(function(){ agentSay(reply); },400);
-}
-$('#chatSend').addEventListener('click',sendChat);
-$('#chatInput').addEventListener('keydown',function(e){ if(e.key==='Enter') sendChat(); });
-
-/* ================= cookie ================= */
-var cookieShown=false, cookieGone=false;
-$('#cookieBtn').addEventListener('click',function(){
-  cookieGone=true; $('#cookie').style.display='none';
-  toast('报名成功','谢谢。它很高兴。');
-});
-
-/* ================= buy button ================= */
-var buyBtn=$('#buyBtn');
-buyBtn.addEventListener('pointermove',function(e){
-  if(sp<.6) return;
-  var r=buyBtn.getBoundingClientRect();
-  var cx=r.left+r.width/2, cy=r.top+r.height/2;
-  var dx=cx-e.clientX, dy=cy-e.clientY;
-  var d=Math.sqrt(dx*dx+dy*dy)||1;
-  var push=clamp(110-d,0,90);
-  buyBtn.style.transform='translate('+(dx/d*push)+'px,'+(dy/d*push)+'px)';
-});
-buyBtn.addEventListener('pointerleave',function(){ buyBtn.style.transform=''; });
-buyBtn.addEventListener('click',function(){
-  if(sp<.5){ toast('报名成功','已为你预留座位 ✓ 今晚 00:00 发车。'); }
-  else{ toast('报名记录','你早就报过名了。从你打开这个页面开始。'); glitchBurst(); }
-});
-
-/* ================= faq ================= */
-$$('.faq-q').forEach(function(q){
-  q.addEventListener('click',function(){ q.parentElement.classList.toggle('open'); });
-});
-
-/* ================= clocks ================= */
-function pad(n){ return n<10?'0'+n:''+n; }
+/* ================= clocks / status ================= */
+function pad(n){return n<10?'0'+n:''+n}
 setInterval(function(){
   var d=new Date();
-  var s=pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
-  $$('.liveClock').forEach(function(el){ el.textContent=s; });
+  $('#sbTime').textContent=pad(d.getHours())+':'+pad(d.getMinutes());
 },1000);
 
-/* ================= road ================= */
-var road=$('#road'), guide=$('#guide'), roadText=$('#roadText'), distHud=$('#distHud'), speedHud=$('#speedHud');
-var tunnel=$('#tunnel'), flagText=$('#flagText');
-var roadLines=[
-  [.02,'夜班大巴。满员 45 人。你是第 46 位。'],
-  [.35,'司机说快到了。可窗外一直是同一片雾。'],
-  [.65,'前面有人举着小红旗。大巴没有减速的意思。'],
-  [.88,'别下车。']
-];
-var roadLineIdx=-1, flagSwapped=false, speedSwapped=false;
-function updateRoad(dt,now){
-  var r=road.getBoundingClientRect();
-  if(r.bottom<0 || r.top>innerHeight) return;
-  var local=clamp((-r.top)/(r.height-innerHeight),0,1);
-  if(!finaleStarted){
-    creep=Math.min(1,creep+dt/120000);
-    creep=Math.max(creep,local);
-  }
-  roadFp=Math.max(local,creep);
-  var s=.12+Math.pow(roadFp,1.7)*6.8;
-  var H=390*s;
-  var faceY=innerHeight*(.58-.16*roadFp);
-  guide.style.transform='translate(-50%,-100%) scale('+s.toFixed(3)+')';
-  guide.style.top=(faceY+.871*H)+'px';
-  guide.classList.toggle('close',roadFp>.85);
-  tunnel.setAttribute('transform','translate(500,300) scale('+(0.4+roadFp*2.8).toFixed(3)+')');
-  // center dashes always moving: the bus never stops
-  for(var i=0;i<6;i++){
-    var p=((now/1500)+i/6)%1;
-    var y=300+p*p*300;
-    var w=2+p*13, h=4+p*34;
-    var d=$('#d'+i);
-    d.setAttribute('x',String(500-w/2));
-    d.setAttribute('y',String(y));
-    d.setAttribute('width',String(w));
-    d.setAttribute('height',String(h));
-    d.setAttribute('opacity',String(.15+p*.45));
-  }
-  if(roadFp>.85 && !flagSwapped){ flagSwapped=true; flagText.textContent='跟我走'; }
-  if(roadFp>.9 && !speedSwapped){ speedSwapped=true; speedHud.textContent='时速 60 km/h · 刹车已拆除'; }
-  distHud.textContent = roadFp<.97 ? '距雾隐村 '+((1-roadFp)*12).toFixed(1)+' km' : '已到达 · 下一站：你家楼下';
-  var idx=-1;
-  for(var j=0;j<roadLines.length;j++){ if(roadFp>=roadLines[j][0]) idx=j; }
-  if(idx!==roadLineIdx && idx>=0){
-    roadLineIdx=idx;
-    roadText.style.opacity='0';
-    setTimeout(function(){ roadText.textContent=roadLines[idx][1]; roadText.style.opacity='1'; },350);
-  }
-  if(roadFp>=.999 && !finaleStarted && !autoPulled){
-    autoPulled=true;
-    $('#finale').scrollIntoView({behavior:'smooth'});
-  }
-}
-
 /* ================= finale ================= */
-var finLines=$('#finLines');
-function typeLine(text,cls){
-  return new Promise(function(resolve){
-    var line=document.createElement('div'); line.className='line'+(cls?' '+cls:'');
-    var caret=document.createElement('span'); caret.className='caret'; caret.textContent='▌';
-    line.appendChild(caret); finLines.appendChild(line);
-    var i=0;
-    (function step(){
-      if(i<text.length){
-        caret.before(text[i]); i++;
-        setTimeout(step,42);
-      }else{
-        caret.remove(); resolve();
-      }
-    })();
-  });
-}
-function wait(ms){ return new Promise(function(r){ setTimeout(r,ms); }); }
+function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
 function buildFinaleLines(){
   var now=performance.now();
-  var mins=Math.floor((now-t0)/60000);
-  var secs=Math.floor(((now-t0)%60000)/1000);
+  var mins=Math.floor((now-t0)/60000),secs=Math.floor(((now-t0)%60000)/1000);
   var d=new Date();
   var lines=[
-    '各位游客，晚上好。本次班车已行驶 '+mins+' 分 '+secs+' 秒。',
-    '现在时间 '+pad(d.getHours())+':'+pad(d.getMinutes())+'。末班车是 00:00。您赶上了。',
-    visits>1 ? '这是您第 '+visits+' 次乘坐。您每次都在最后一排下车。' : '这是您第一次乘坐。我们已经记住您的脸了。'
+    '各位团友，晚上好。本次班车已行驶 '+mins+' 分 '+secs+' 秒。',
+    '现在时间 '+pad(d.getHours())+':'+pad(d.getMinutes())+'。末班车 00:00。您赶上了。',
+    visits>1?'这是您第 '+visits+' 次进群。您每次都在最后一排下车。':'这是您第一次进群。我们已经记住您的脸了。'
   ];
-  if(batteryLevel!==null && batteryLevel<1){
-    lines.push('您的电量还剩 '+Math.round(batteryLevel*100)+'%。够播完这条广播。');
-  }
+  if(batteryLevel!==null&&batteryLevel<1)lines.push('您的电量还剩 '+Math.round(batteryLevel*100)+'%。够播完这条广播。');
   lines.push('下一站：你家楼下。');
-  lines.push('请第 46 位游客带好随身物品，准备下车。');
+  lines.push('请第 46 位团友带好随身物品，准备下车。');
   lines.push('您就是第 46 位。');
   return lines;
 }
+function itRow(){
+  var n=el('div','msg-row in');n.dataset.who='it';
+  n.innerHTML='<div class="ava" data-ava="it">'+avaSvg('it')+'</div><div class="col"><div class="sender">它</div><div class="bubble"><span class="btext"></span></div></div>';
+  log.appendChild(n);return n;
+}
 async function startFinale(){
-  if(finaleStarted) return;
-  finaleStarted=true; locked=true;
-  document.body.classList.add('finale-on');
-  $('#chatPanel').classList.remove('open');
-  flickerSwap($('#ledSign'),'第 46 位');
-  await wait(700);
+  if(finaleStarted)return;
+  finaleStarted=true;locked=true;
+  input.disabled=true;input.placeholder='全员禁言中…';
+  $('#plusPanel').classList.remove('open');
+  closeDrawer();closeModal();
+  scrollBottom(true);
+  await wait(900);
+  var typing=itRow();
+  var tb=typing.querySelector('.bubble');tb.className='bubble typing-bubble';tb.innerHTML='<i></i><i></i><i></i>';
+  scrollBottom(true);
+  await wait(1400);
+  typing.querySelector('.col').removeChild(tb);
   var lines=buildFinaleLines();
   for(var i=0;i<lines.length;i++){
-    sound.chime();
+    var row=itRow();
+    var bt=row.querySelector('.btext');
+    sound.notify();
+    var text=lines[i];
+    for(var j=0;j<text.length;j++){bt.textContent+=text[j];scrollBottom(false);await wait(38)}
+    scrollBottom(true);
     await wait(650);
-    await typeLine('🔊 '+lines[i]);
-    await wait(600);
   }
-  sound.chime();
-  await wait(650);
-  await typeLine('下车时，别回头。','dont');
-  await wait(1300);
+  var last=itRow();
+  var lb=last.querySelector('.bubble');lb.style.background='#5a1210';lb.style.color='#f0d8d0';
+  last.querySelector('.btext').textContent='下车时，别回头。';
+  sound.notify();scrollBottom(true);
+  await wait(1400);
   doScare();
-  await wait(430);
-  $('#scare').style.display='none'; $('#scare').classList.remove('jitter');
+  await wait(450);
+  $('#scare').style.display='none';$('#scare').classList.remove('jitter');
   $('#flash').style.opacity='0';
   await wait(300);
   if(!RM){
-    $('#scare').style.display='grid'; $('#scare').style.opacity='.45';
+    $('#scare').style.display='grid';$('#scare').style.opacity='.45';
     await wait(120);
-    $('#scare').style.display='none'; $('#scare').style.opacity='1';
+    $('#scare').style.display='none';$('#scare').style.opacity='1';
   }
-  await wait(1800);
-  finLines.style.display='none';
-  document.body.classList.remove('finale-on');
-  $('#aftermath').style.display='block';
-  finaleDone=true; locked=false;
+  await wait(1700);
+  $('#aftermath').classList.add('open');
+  finaleDone=true;locked=false;
   sound.hush();
 }
 function doScare(){
   sound.scream();
-  var scare=$('#scare');
-  scare.style.display='grid';
-  if(!RM) scare.classList.add('jitter');
-  $('#flash').style.transition='none'; $('#flash').style.opacity='.85';
-  setTimeout(function(){ $('#flash').style.transition='opacity .5s'; $('#flash').style.opacity='0'; },120);
-  if(!RM) shakeUntil=performance.now()+560;
-  var disp=$('#scareDisp'), start=performance.now();
+  var scare=$('#scare');scare.style.display='grid';
+  if(!RM)scare.classList.add('jitter');
+  $('#flash').style.transition='none';$('#flash').style.opacity='.85';
+  setTimeout(function(){$('#flash').style.transition='opacity .5s';$('#flash').style.opacity='0'},120);
+  if(!RM)shakeUntil=performance.now()+560;
+  if(navigator.vibrate)navigator.vibrate([80,40,120]);
+  var disp=$('#scareDisp'),start=performance.now();
   (function anim(){
     var t=performance.now()-start;
-    if(t>450 || scare.style.display==='none') return;
-    disp.setAttribute('scale', String(24+Math.random()*38));
+    if(t>450||scare.style.display==='none')return;
+    disp.setAttribute('scale',String(24+Math.random()*38));
     requestAnimationFrame(anim);
   })();
 }
-$('#againBtn').addEventListener('click',function(){ location.reload(); });
+$('#againBtn').addEventListener('click',function(){location.reload()});
 $('#stayLink').addEventListener('click',function(){
-  var scare=$('#scare');
-  scare.style.display='grid';
+  var scare=$('#scare');scare.style.display='grid';
   sound.scream();
-  setTimeout(function(){ scare.style.display='none'; },160);
+  setTimeout(function(){scare.style.display='none'},160);
   spawnWhisper();
 });
 
 /* scroll lock */
-window.addEventListener('wheel',function(e){ if(locked) e.preventDefault(); },{passive:false});
-window.addEventListener('touchmove',function(e){ if(locked) e.preventDefault(); },{passive:false});
+window.addEventListener('wheel',function(e){if(locked)e.preventDefault()},{passive:false});
+window.addEventListener('touchmove',function(e){if(locked)e.preventDefault()},{passive:false});
 window.addEventListener('keydown',function(e){
-  if(locked && ['ArrowUp','ArrowDown','PageUp','PageDown',' ','Home','End'].indexOf(e.key)>=0) e.preventDefault();
-  if(e.key==='Escape' && locked){
-    locked=false;
-    toast('……','你提前下车了。它有点失望。');
-  }
+  if(locked&&['ArrowUp','ArrowDown','PageUp','PageDown',' ','Home','End'].indexOf(e.key)>=0)e.preventDefault();
+  if(e.key==='Escape'&&locked){locked=false;input.disabled=false;input.placeholder='说点什么…';toast('……','你退群了。它有点失望。')}
 });
 
 /* ================= schedulers ================= */
-var nextGlitch=performance.now()+3500, nextWhisper=performance.now()+6000,
-    nextBlink=performance.now()+9000, nextSub=performance.now()+12000,
-    nextHorn=performance.now()+8000;
+var nextGlitch=performance.now()+3500,nextWhisper=performance.now()+6000,
+    nextBlink=performance.now()+9000,nextSub=performance.now()+12000;
 
 /* ================= main loop ================= */
-var last=performance.now(), frameCount=0;
+var last=performance.now(),frameCount=0;
 function frame(now){
-  var dt=Math.min(80,now-last); last=now; frameCount++;
+  var dt=Math.min(80,now-last);last=now;frameCount++;
   var dh=Math.max(1,root.scrollHeight-innerHeight);
   var raw=clamp((window.scrollY||root.scrollTop)/dh,0,1);
-  sp += (raw-sp)*Math.min(1,dt/230);
+  sp+=(raw-sp)*Math.min(1,dt/230);
 
   var st=root.style;
-  st.setProperty('--p',sp.toFixed(3));
   st.setProperty('--bg',stops(PAL.bg,sp));
+  st.setProperty('--bubble',stops(PAL.bubble,sp));
+  st.setProperty('--self',stops(PAL.self,sp));
   st.setProperty('--ink',stops(PAL.ink,sp));
   st.setProperty('--muted',stops(PAL.muted,sp));
-  st.setProperty('--accent',stops(PAL.accent,sp));
-  st.setProperty('--cta',stops(PAL.cta,sp));
-  st.setProperty('--card',stops(PAL.card,sp));
   st.setProperty('--line',stops(PAL.line,sp));
-  st.setProperty('--nav-bg',stops(PAL.card,sp).replace('rgb','rgba').replace(')',',.82)'));
-  st.setProperty('--hero-glow',clamp(1-sp*3.2,0,1).toFixed(3));
-  st.setProperty('--noise-o',clamp((sp-.28)*1.2,0,.6).toFixed(3));
-  st.setProperty('--scan-o',clamp((sp-.4)*1.4,0,.5).toFixed(3));
-  st.setProperty('--vig-o',(.1+sp*.87).toFixed(3));
+  st.setProperty('--top',stops(PAL.top,sp));
+  st.setProperty('--side',stops(PAL.side,sp));
+  st.setProperty('--accent',stops(PAL.accent,sp));
+  st.setProperty('--noise-o',clamp((sp-.28)*1.2,0,.55).toFixed(3));
+  st.setProperty('--scan-o',clamp((sp-.4)*1.4,0,.45).toFixed(3));
+  st.setProperty('--vig-o',(sp*.8).toFixed(3));
   st.setProperty('--sat',(1-.3*Math.sin(Math.PI*Math.min(1,sp*1.15))+sp*.12).toFixed(3));
   st.setProperty('--con',(1+sp*.13).toFixed(3));
 
-  document.body.classList.toggle('s1',sp>.22);
-  document.body.classList.toggle('s2',sp>.42);
-  document.body.classList.toggle('s3',sp>.62);
-  document.body.classList.toggle('s4',sp>.8);
-
-  /* face distortion grows */
-  if(frameCount%4===0){
-    $('#faceDisp').setAttribute('scale',String((2+sp*22+(roadFp>.8?10:0)).toFixed(1)));
+  /* status bar battery / signal */
+  if(frameCount%20===0){
+    $('#sbBatt').textContent=Math.max(1,100-Math.floor(sp*99))+'%';
+    var off=Math.floor(sp*4.5);
+    $$('#sbSig i').forEach(function(b,i){b.classList.toggle('off',i>=4-off)});
   }
 
-  updateRoad(dt,now);
+  /* reveal pending messages as they scroll into view */
+  if(frameCount%6===0){
+    pendingNodes.forEach(function(n){
+      if(n._revealed)return;
+      var r=n.getBoundingClientRect();
+      if(r.top<innerHeight*.92){
+        n._revealed=true;n.classList.remove('pending');n.classList.add('in');
+        if(n._notify){sound.notify();if(n.id==='sysItJoined'&&navigator.vibrate)navigator.vibrate(60)}
+      }
+    });
+  }
 
-  if(!finaleStarted){
-    var fr=$('#finale').getBoundingClientRect();
-    if(fr.top<innerHeight*.55) startFinale();
+  /* face distortion */
+  if(frameCount%4===0){
+    $('#faceDisp').setAttribute('scale',String((2+sp*22).toFixed(1)));
   }
 
   runMorphs(sp);
 
-  if(now>=nextGlitch && sp>.34){
-    glitchBurst();
-    nextGlitch=now+rand(1800,5200)*(1.35-sp);
-  }
-  if(now>=nextWhisper && sp>.5){
-    spawnWhisper();
-    nextWhisper=now+rand(4000,9000)*(1.4-sp);
-  }
-  if(now>=nextBlink && sp>.62){
-    pageBlink();
-    nextBlink=now+rand(7000,16000);
-  }
-  if(now>=nextSub && sp>.78){
-    subliminal();
-    nextSub=now+rand(7000,14000);
-  }
-  if(now>=nextHorn && sp>.55){
-    sound.horn();
-    nextHorn=now+rand(7000,15000);
-  }
-  toastEvents.forEach(function(t){
-    if(!t.done && sp>=t.p){ t.done=true; toast(t.t,t.b); }
-  });
-  chatAuto.forEach(function(c){
-    if(!c.done && sp>=c.p){ c.done=true; agentSay(c.m); }
-  });
-  if(!cookieShown && sp>.5){
-    cookieShown=true; $('#cookie').style.display='flex';
-  }
-  if(cookieShown && !cookieGone && sp>.8){
-    cookieGone=true;
-    $('#cookieText').textContent='已替你自动报名。';
-    setTimeout(function(){ $('#cookie').style.display='none'; },900);
-  }
+  if(!finaleStarted&&sp>.92)startFinale();
 
-  if(frameCount%9===0) sound.update(sp);
-  sound.heartbeat(now, finaleStarted&&!finaleDone ? 1 : sp);
-  sound.tick(now, finaleStarted&&!finaleDone ? .9 : sp);
+  if(now>=nextGlitch&&sp>.34){glitchBurst();nextGlitch=now+rand(1800,5200)*(1.35-sp)}
+  if(now>=nextWhisper&&sp>.5){spawnWhisper();nextWhisper=now+rand(4000,9000)*(1.4-sp)}
+  if(now>=nextBlink&&sp>.62){pageBlink();nextBlink=now+rand(7000,16000)}
+  if(now>=nextSub&&sp>.78){subliminal();nextSub=now+rand(7000,14000)}
 
-  if(now<shakeUntil && !RM){
-    page.style.transform='translate('+rand(-9,9).toFixed(1)+'px,'+rand(-7,7).toFixed(1)+'px)';
-  }else if(page.style.transform){
-    page.style.transform='';
-  }
+  if(frameCount%9===0)sound.update(sp);
+  sound.heartbeat(now,finaleStarted&&!finaleDone?1:sp);
+
+  if(now<shakeUntil&&!RM){
+    document.body.style.transform='translate('+rand(-8,8).toFixed(1)+'px,'+rand(-6,6).toFixed(1)+'px)';
+  }else if(document.body.style.transform){document.body.style.transform=''}
 
   requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
-
-window.addEventListener('pointermove',function(e){ mx=e.clientX; my=e.clientY; },{passive:true});
 })();
 </script>
 </body>
